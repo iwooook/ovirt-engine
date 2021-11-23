@@ -32,10 +32,13 @@ export BUILD_JAVA_OPTS_MAVEN="\
 # For milestone (non-release) master builds, build permutations for chrome and firefox
 if [ -n "${MILESTONE}" ] && [ "${MILESTONE}" == "master" ]; then
 	export EXTRA_BUILD_FLAGS="-gs $MAVEN_SETTINGS \
-	    -D gwt.userAgent=gecko1_8,safari \
+	    -D gwt.userAgent=safari \
 	"
 else
-	export EXTRA_BUILD_FLAGS="-gs $MAVEN_SETTINGS"
+	#export EXTRA_BUILD_FLAGS="-gs $MAVEN_SETTINGS"
+	export EXTRA_BUILD_FLAGS="-gs $MAVEN_SETTINGS \
+	    -D gwt.userAgent=safari \
+	"
 fi
 
 export BUILD_JAVA_OPTS_GWT="$JVM_MEM_OPTS"
@@ -88,7 +91,7 @@ rpmbuild \
     -ts ./*.gz
 
 # install any build requirements
-yum-builddep output/*src.rpm
+yum-builddep -y output/*src.rpm
 
 # build minimal rpms for CI, fuller ones for releases
 BUILD_UT=0
