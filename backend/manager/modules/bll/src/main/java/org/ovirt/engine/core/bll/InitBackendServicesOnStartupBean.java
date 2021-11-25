@@ -11,6 +11,7 @@ import org.ovirt.engine.core.bll.aaa.SessionDataContainer;
 import org.ovirt.engine.core.bll.dwh.DwhHeartBeat;
 import org.ovirt.engine.core.bll.gluster.GlusterJobsManager;
 import org.ovirt.engine.core.bll.hostdeploy.HostUpdatesCheckerService;
+import org.ovirt.engine.core.bll.hostdeploy.DummyService;
 import org.ovirt.engine.core.bll.hostdev.HostDeviceManager;
 import org.ovirt.engine.core.bll.kubevirt.KubevirtService;
 import org.ovirt.engine.core.bll.network.cluster.ExternalNetworkSyncService;
@@ -117,6 +118,7 @@ public class InitBackendServicesOnStartupBean implements InitBackendServicesOnSt
 
             serviceLoader.load(CertificationValidityChecker.class);
             serviceLoader.load(HostUpdatesCheckerService.class);
+            serviceLoader.load(DummyService.class);
             serviceLoader.load(IPTablesDeprecationNotifier.class);
             serviceLoader.load(ExternalNetworkSyncService.class);
         } catch (Exception ex) {
