@@ -188,6 +188,14 @@
                             </b:Anchor>
                         </b:ListGroupItem>
                     </b:ListGroup>
+                    <!--iwooook-->
+                    <b:ListGroup>
+                        <b:ListGroupItem>
+                            <b:Anchor href="#whitelist" targetHistoryToken="whitelist" ui:field="whitelistAnchor">
+                                <span class="list-group-item-value"><ui:text from="{constants.whitelistMainViewLabel}" /></span>
+                            </b:Anchor>
+                        </b:ListGroupItem>
+                    </b:ListGroup>
                 </g:FlowPanel>
             </b:ListGroupItem>
             <b:ListGroupItem ui:field="eventsPrimaryItem">
