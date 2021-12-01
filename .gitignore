@@ -1,6 +1,7 @@
 # ovirt-engine global ignore list
 ###########################
 
+# Jungwook ignore
 prefix
 Makefile.out
 cmds.sh
