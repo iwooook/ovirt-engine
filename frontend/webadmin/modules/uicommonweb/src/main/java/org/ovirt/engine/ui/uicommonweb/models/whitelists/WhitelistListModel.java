@@ -73,6 +73,21 @@ public class WhitelistListModel<E> extends ListWithSimpleDetailsModel<E, Whiteli
         return "WhitelistListModel"; //$NON-NLS-1$
     }
 
+    @Inject
+    public WhitelistListModel() {
+        setTitle(ConstantsManager.getInstance().getConstants().quotaTitle());
+        setApplicationPlace(WebAdminApplicationPlaces.whitelistMainPlace);
+
+        setAvailableInModes(ApplicationMode.VirtOnly);
+
+        setCreateCommand(new UICommand("Create", this)); //$NON-NLS-1$
+        setEditCommand(new UICommand("Edit", this)); //$NON-NLS-1$
+        setRemoveCommand(new UICommand("Remove", this)); //$NON-NLS-1$
+
+        getSearchNextPageCommand().setIsAvailable(true);
+        getSearchPreviousPageCommand().setIsAvailable(true);
+    }
+    
     /*
     private final QuotaClusterListModel clusterListModel;
 
