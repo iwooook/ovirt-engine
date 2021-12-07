@@ -26,9 +26,9 @@ import com.gwtplatform.mvp.shared.proxy.PlaceRequest;
 public class MainWhitelistPresenter extends AbstractMainWithDetailsPresenter<Whitelist, WhitelistListModel, MainWhitelistPresenter.ViewDef, MainWhitelistPresenter.ProxyDef> {
 
     @GenEvent
-    public class QuotaSelectionChange {
+    public class WhitelistSelectionChange {
 
-        List<Quota> selectedItems;
+        List<Whitelist> selectedItems;
 
     }
 
@@ -51,7 +51,7 @@ public class MainWhitelistPresenter extends AbstractMainWithDetailsPresenter<Whi
 
     @Override
     protected void fireTableSelectionChangeEvent() {
-        //WhitelistSelectionChangeEvent.fire(this, getSelectedItems());
+        WhitelistSelectionChangeEvent.fire(this, getSelectedItems());
     }
 
     @Override
