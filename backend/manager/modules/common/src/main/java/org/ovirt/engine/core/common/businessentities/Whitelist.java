@@ -32,7 +32,7 @@ public class Whitelist implements Queryable, BusinessEntity<Guid>, Nameable {
     /**
      * Automatic generated serial version ID.
      */
-    private static final long serialVersionUID = 6637198348072059199L;
+    private static final long serialVersionUID = 6637198348072059123L;
 
     /**
      * The quota id.
