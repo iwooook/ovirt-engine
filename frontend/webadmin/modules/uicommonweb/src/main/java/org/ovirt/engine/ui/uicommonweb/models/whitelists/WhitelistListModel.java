@@ -68,6 +68,14 @@ public class WhitelistListModel<E> extends ListWithSimpleDetailsModel<E, Whiteli
         this.editCommand = editQuotaCommand;
     }
 
+    public UICommand getCloneCommand() {
+        return cloneCommand;
+    }
+
+    public void setCloneCommand(UICommand cloneQuotaCommand) {
+        this.cloneCommand = cloneQuotaCommand;
+    }
+
     @Override
     protected String getListName() {
         return "WhitelistListModel"; //$NON-NLS-1$
@@ -75,19 +83,23 @@ public class WhitelistListModel<E> extends ListWithSimpleDetailsModel<E, Whiteli
 
     @Inject
     public WhitelistListModel() {
+        
         setTitle(ConstantsManager.getInstance().getConstants().quotaTitle());
         setApplicationPlace(WebAdminApplicationPlaces.whitelistMainPlace);
 
+        setDefaultSearchString(SearchStringMapping.QUOTA_DEFAULT_SEARCH + ":"); //$NON-NLS-1$
+        setSearchString(getDefaultSearchString());
+        setSearchObjects(new String[] { SearchObjects.QUOTA_OBJ_NAME, SearchObjects.QUOTA_PLU_OBJ_NAME });
         setAvailableInModes(ApplicationMode.VirtOnly);
 
         setCreateCommand(new UICommand("Create", this)); //$NON-NLS-1$
         setEditCommand(new UICommand("Edit", this)); //$NON-NLS-1$
         setRemoveCommand(new UICommand("Remove", this)); //$NON-NLS-1$
+        setCloneCommand(new UICommand("Clone", this)); //$NON-NLS-1$
 
         getSearchNextPageCommand().setIsAvailable(true);
         getSearchPreviousPageCommand().setIsAvailable(true);
     }
-    
     /*
     private final QuotaClusterListModel clusterListModel;
 
