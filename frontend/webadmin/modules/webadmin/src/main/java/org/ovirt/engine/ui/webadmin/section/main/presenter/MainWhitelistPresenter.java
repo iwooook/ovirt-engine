@@ -51,7 +51,7 @@ public class MainWhitelistPresenter extends AbstractMainWithDetailsPresenter<Whi
 
     @Override
     protected void fireTableSelectionChangeEvent() {
-        //QuotaSelectionChangeEvent.fire(this, getSelectedItems());
+        WhitelistSelectionChangeEvent.fire(this, getSelectedItems());
     }
 
     @Override
