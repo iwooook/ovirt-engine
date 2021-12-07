@@ -17,6 +17,7 @@ public final class WebAdminApplicationPlaces {
     public static final String userMainPlace = "users"; //$NON-NLS-1$
     public static final String eventMainPlace = "events"; //$NON-NLS-1$
     public static final String quotaMainPlace = "quota"; //$NON-NLS-1$
+    public static final String whitelistMainPlace = "whitelist"; //$NON-NLS-1$
     public static final String volumeMainPlace = "volumes"; //$NON-NLS-1$
     public static final String diskMainPlace = "disks"; //$NON-NLS-1$
     public static final String networkMainPlace = "networks"; //$NON-NLS-1$

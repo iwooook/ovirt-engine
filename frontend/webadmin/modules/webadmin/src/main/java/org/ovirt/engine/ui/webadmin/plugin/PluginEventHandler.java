@@ -16,7 +16,6 @@ import org.ovirt.engine.ui.webadmin.section.main.presenter.HostSelectionChangeEv
 import org.ovirt.engine.ui.webadmin.section.main.presenter.NetworkSelectionChangeEvent;
 import org.ovirt.engine.ui.webadmin.section.main.presenter.PoolSelectionChangeEvent;
 import org.ovirt.engine.ui.webadmin.section.main.presenter.ProviderSelectionChangeEvent;
-import org.ovirt.engine.ui.webadmin.section.main.presenter.QuotaSelectionChangeEvent;
 import org.ovirt.engine.ui.webadmin.section.main.presenter.WhitelistSelectionChangeEvent;
 import org.ovirt.engine.ui.webadmin.section.main.presenter.StorageSelectionChangeEvent;
 import org.ovirt.engine.ui.webadmin.section.main.presenter.TemplateSelectionChangeEvent;
@@ -91,9 +90,6 @@ public class PluginEventHandler {
         eventBus.addHandler(QuotaSelectionChangeEvent.getType(),
                 event -> manager.invokePluginsNow("QuotaSelectionChange", //$NON-NLS-1$
                         JsArrayHelper.createMixedArray(EntityObject.arrayFrom(event.getSelectedItems()))));
-        eventBus.addHandler(WhitelistSelectionChangeEvent.getType(),
-                event -> manager.invokePluginsNow("WhitelistSelectionChange", //$NON-NLS-1$
-                        JsArrayHelper.createMixedArray(EntityObject.arrayFrom(event.getSelectedItems()))));                
         eventBus.addHandler(EventSelectionChangeEvent.getType(),
                 event -> manager.invokePluginsNow("EventSelectionChange", //$NON-NLS-1$
                         JsArrayHelper.createMixedArray(EntityObject.arrayFrom(event.getSelectedItems()))));

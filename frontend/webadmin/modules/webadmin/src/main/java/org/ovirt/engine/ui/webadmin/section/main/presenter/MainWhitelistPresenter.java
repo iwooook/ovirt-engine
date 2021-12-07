@@ -33,7 +33,7 @@ public class MainWhitelistPresenter extends AbstractMainWithDetailsPresenter<Whi
     }
 
     @ProxyCodeSplit
-    @NameToken(WebAdminApplicationPlaces.quotaMainPlace)
+    @NameToken(WebAdminApplicationPlaces.whitelistMainPlace)
     public interface ProxyDef extends ProxyPlace<MainWhitelistPresenter> {
     }
 
@@ -51,12 +51,12 @@ public class MainWhitelistPresenter extends AbstractMainWithDetailsPresenter<Whi
 
     @Override
     protected void fireTableSelectionChangeEvent() {
-        WhitelistSelectionChangeEvent.fire(this, getSelectedItems());
+        //WhitelistSelectionChangeEvent.fire(this, getSelectedItems());
     }
 
     @Override
     protected PlaceRequest getMainViewRequest() {
-        return PlaceRequestFactory.get(WebAdminApplicationPlaces.quotaMainPlace);
+        return PlaceRequestFactory.get(WebAdminApplicationPlaces.whitelistMainPlace);
     }
 
 }
