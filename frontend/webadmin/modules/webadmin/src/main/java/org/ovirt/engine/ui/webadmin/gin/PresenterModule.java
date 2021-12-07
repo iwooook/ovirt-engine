@@ -109,6 +109,7 @@ import org.ovirt.engine.ui.webadmin.section.main.presenter.MainNetworkPresenter;
 import org.ovirt.engine.ui.webadmin.section.main.presenter.MainPoolPresenter;
 import org.ovirt.engine.ui.webadmin.section.main.presenter.MainProviderPresenter;
 import org.ovirt.engine.ui.webadmin.section.main.presenter.MainQuotaPresenter;
+import org.ovirt.engine.ui.webadmin.section.main.presenter.MainWhitelistPresenter;
 import org.ovirt.engine.ui.webadmin.section.main.presenter.MainSectionPresenter;
 import org.ovirt.engine.ui.webadmin.section.main.presenter.MainSessionPresenter;
 import org.ovirt.engine.ui.webadmin.section.main.presenter.MainStoragePresenter;
@@ -117,6 +118,7 @@ import org.ovirt.engine.ui.webadmin.section.main.presenter.MainUserPresenter;
 import org.ovirt.engine.ui.webadmin.section.main.presenter.MainVirtualMachinePresenter;
 import org.ovirt.engine.ui.webadmin.section.main.presenter.MainVnicProfilePresenter;
 import org.ovirt.engine.ui.webadmin.section.main.presenter.MainVolumePresenter;
+import org.ovirt.engine.ui.webadmin.section.main.presenter.MainWhitelistPresenter;
 import org.ovirt.engine.ui.webadmin.section.main.presenter.MenuPresenterWidget;
 import org.ovirt.engine.ui.webadmin.section.main.presenter.NotificationPresenterWidget;
 import org.ovirt.engine.ui.webadmin.section.main.presenter.SearchPanelPresenterWidget;
@@ -393,6 +395,7 @@ import org.ovirt.engine.ui.webadmin.section.main.view.MainNetworkView;
 import org.ovirt.engine.ui.webadmin.section.main.view.MainPoolView;
 import org.ovirt.engine.ui.webadmin.section.main.view.MainProviderView;
 import org.ovirt.engine.ui.webadmin.section.main.view.MainQuotaView;
+import org.ovirt.engine.ui.webadmin.section.main.view.MainWhitelistView;
 import org.ovirt.engine.ui.webadmin.section.main.view.MainSectionView;
 import org.ovirt.engine.ui.webadmin.section.main.view.MainSessionView;
 import org.ovirt.engine.ui.webadmin.section.main.view.MainStorageView;
@@ -791,6 +794,10 @@ public class PresenterModule extends BasePresenterModule {
                 MainQuotaPresenter.ViewDef.class,
                 MainQuotaView.class,
                 MainQuotaPresenter.ProxyDef.class);
+        bindPresenter(MainWhitelistPresenter.class,
+                MainWhitelistPresenter.ViewDef.class,
+                MainWhitelistView.class,
+                MainWhitelistPresenter.ProxyDef.class);                
         bindPresenter(MainVolumePresenter.class,
                 MainVolumePresenter.ViewDef.class,
                 MainVolumeView.class,
