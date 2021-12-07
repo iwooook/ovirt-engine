@@ -8,7 +8,12 @@ import org.ovirt.engine.core.common.action.ActionType;
 import org.ovirt.engine.core.common.action.IdParameters;
 import org.ovirt.engine.core.common.action.QuotaCRUDParameters;
 import org.ovirt.engine.core.common.businessentities.Cluster;
-
+import org.ovirt.engine.core.common.businessentities.Whitelist;
+import org.ovirt.engine.core.common.businessentities.Quota;
+import org.ovirt.engine.core.common.businessentities.QuotaCluster;
+import org.ovirt.engine.core.common.businessentities.QuotaStorage;
+import org.ovirt.engine.core.common.businessentities.StorageDomain;
+import org.ovirt.engine.core.common.businessentities.StoragePool;
 import org.ovirt.engine.core.common.interfaces.SearchType;
 import org.ovirt.engine.core.common.mode.ApplicationMode;
 import org.ovirt.engine.core.common.queries.IdQueryParameters;
@@ -27,10 +32,9 @@ import org.ovirt.engine.ui.uicommonweb.models.ListWithSimpleDetailsModel;
 import org.ovirt.engine.ui.uicommonweb.models.SearchStringMapping;
 import org.ovirt.engine.ui.uicommonweb.place.WebAdminApplicationPlaces;
 import org.ovirt.engine.ui.uicompat.ConstantsManager;
-
 import com.google.inject.Inject;
 
-public class WhitelistListModel<E> extends ListWithSimpleDetailsModel<E, Quota> {
+public class WhitelistListModel<E> extends ListWithSimpleDetailsModel<E, Whitelist> {
 
     private static final String COPY_OF = "Copy_of_"; //$NON-NLS-1$
 
