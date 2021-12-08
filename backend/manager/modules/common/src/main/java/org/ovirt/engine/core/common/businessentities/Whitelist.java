@@ -122,6 +122,9 @@ public class Whitelist implements Queryable, BusinessEntity<Guid>, Nameable {
      */
     private List<QuotaStorage> quotaStorageList;
 
+    private String userName = "FIXME, userName";
+    private String ipAddress = "FIXME, ipAddress";
+
     /**
      * Default constructor of Quota, which initialize empty lists for specific limitations, and no user assigned.
      */
@@ -414,5 +417,13 @@ public class Whitelist implements Queryable, BusinessEntity<Guid>, Nameable {
 
     public void setGlobalQuotaStorage(QuotaStorage globalQuotaStorage) {
         this.globalQuotaStorage = globalQuotaStorage;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public String getIpAddress() {
+        return ipAddress;
     }
 }

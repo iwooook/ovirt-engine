@@ -51,6 +51,36 @@ public class MainWhitelistView extends AbstractMainWithDetailsTableView<Whitelis
     void initTable() {
         getTable().enableColumnResizing();
 
+        AbstractTextColumn<Whitelist> whitelistDbIdColumn =
+                new AbstractTextColumn<Whitelist>() {
+                    @Override
+                    public String getValue(Whitelist whitelist) {
+                        return whitelist.getId().toString();
+                    }
+                };
+        //whitelistDbIdColumn.makeSortable(SessionConditionFieldAutoCompleter.SESSION_DB_ID);
+        getTable().addColumn(whitelistDbIdColumn, constants.whitelistDbId(), "100px"); //$NON-NLS-1$
+
+        AbstractTextColumn<Whitelist> ipAddressColumn =
+                new AbstractTextColumn<Whitelist>() {
+                    @Override
+                    public String getValue(Whitelist whitelist) {
+                        return whitelist.getIpAddress();
+                    }
+                };
+        //userNameColumn.makeSortable(SessionConditionFieldAutoCompleter.USER_NAME);
+        getTable().addColumn(ipAddressColumn, constants.whitelistIpAddr(), "200px"); //$NON-NLS-1$
+
+        AbstractTextColumn<Whitelist> userNameColumn =
+                new AbstractTextColumn<Whitelist>() {
+                    @Override
+                    public String getValue(Whitelist whitelist) {
+                        return whitelist.getUserName();
+                    }
+                };
+        //userNameColumn.makeSortable(SessionConditionFieldAutoCompleter.USER_NAME);
+        getTable().addColumn(userNameColumn, constants.userNameUser(), "200px"); //$NON-NLS-1$
+        
         /*
         QuotaDcStatusColumn dcStatusColumn = new QuotaDcStatusColumn();
         dcStatusColumn.setContextMenuTitle(constants.dcStatusQuota());
