@@ -10,11 +10,11 @@ import com.google.web.bindery.event.shared.EventBus;
 
 public class WhitelistBreadCrumbsPresenterWidget extends OvirtBreadCrumbsPresenterWidget<Whitelist, WhitelistListModel> {
 
-    public interface QuotaBreadCrumbsViewDef extends OvirtBreadCrumbsPresenterWidget.ViewDef<Whitelist> {
+    public interface WhitelistBreadCrumbsViewDef extends OvirtBreadCrumbsPresenterWidget.ViewDef<Whitelist> {
     }
 
     @Inject
-    public WhitelistBreadCrumbsPresenterWidget(EventBus eventBus, QuotaBreadCrumbsViewDef view,
+    public WhitelistBreadCrumbsPresenterWidget(EventBus eventBus, WhitelistBreadCrumbsViewDef view,
             MainModelProvider<Whitelist, WhitelistListModel> listModelProvider) {
         super(eventBus, view, listModelProvider);
     }
