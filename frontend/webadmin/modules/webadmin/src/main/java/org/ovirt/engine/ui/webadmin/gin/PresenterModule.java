@@ -1330,7 +1330,7 @@ public class PresenterModule extends BasePresenterModule {
                 new TypeLiteral<SearchPanelPresenterWidget.ViewDef<WhitelistListModel>>(){},
                 new TypeLiteral<SearchPanelView<WhitelistListModel>>(){});      
         bindPresenterWidget(WhitelistBreadCrumbsPresenterWidget.class,
-                WhitelistBreadCrumbsPresenterWidget.QuotaBreadCrumbsViewDef.class,
+                WhitelistBreadCrumbsPresenterWidget.WhitelistBreadCrumbsViewDef.class,
                 WhitelistBreadCrumbsView.class);
         bindActionPanel(new TypeLiteral<ActionPanelPresenterWidget.ViewDef<Void, Whitelist>>(){},
             new TypeLiteral<ActionPanelView<Void, Whitelist>>(){});
