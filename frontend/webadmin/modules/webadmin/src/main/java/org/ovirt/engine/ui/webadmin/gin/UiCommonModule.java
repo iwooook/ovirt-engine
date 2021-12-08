@@ -27,6 +27,7 @@ import org.ovirt.engine.ui.webadmin.gin.uicommon.NetworkModule;
 import org.ovirt.engine.ui.webadmin.gin.uicommon.PoolModule;
 import org.ovirt.engine.ui.webadmin.gin.uicommon.ProviderModule;
 import org.ovirt.engine.ui.webadmin.gin.uicommon.QuotaModule;
+import org.ovirt.engine.ui.webadmin.gin.uicommon.WhitelistModule;
 import org.ovirt.engine.ui.webadmin.gin.uicommon.SessionModule;
 import org.ovirt.engine.ui.webadmin.gin.uicommon.StorageModule;
 import org.ovirt.engine.ui.webadmin.gin.uicommon.TemplateModule;
@@ -74,6 +75,7 @@ public class UiCommonModule extends BaseUiCommonModule {
         install(new UserModule());
         install(new EventModule());
         install(new QuotaModule());
+        install(new WhitelistModule());
         install(new VolumeModule());
         install(new DiskModule());
         install(new NetworkModule());
