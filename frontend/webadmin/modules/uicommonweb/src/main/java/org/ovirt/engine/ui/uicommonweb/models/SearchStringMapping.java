@@ -19,6 +19,7 @@ public class SearchStringMapping {
     public static final String VNIC_PROFILE_DEFAULT_SEARCH = "VnicProfile"; //$NON-NLS-1$
     public static final String PROVIDER_DEFAULT_SEARCH = "Provider"; //$NON-NLS-1$
     public static final String QUOTA_DEFAULT_SEARCH = "Quota"; //$NON-NLS-1$
+    public static final String WHITELIST_DEFAULT_SEARCH = "Whitelist"; //$NON-NLS-1$
     public static final String STORAGE_DEFAULT_SEARCH = "Storage"; //$NON-NLS-1$
     public static final String TEMPLATE_DEFAULT_SEARCH = "Template"; //$NON-NLS-1$
     public static final String USERS_DEFAULT_SEARCH = "Users"; //$NON-NLS-1$
@@ -45,6 +46,7 @@ public class SearchStringMapping {
         searchToPlaceMap.put(VNIC_PROFILE_DEFAULT_SEARCH, WebAdminApplicationPlaces.vnicProfileMainPlace);
         searchToPlaceMap.put(PROVIDER_DEFAULT_SEARCH, WebAdminApplicationPlaces.providerMainPlace);
         searchToPlaceMap.put(QUOTA_DEFAULT_SEARCH, WebAdminApplicationPlaces.quotaMainPlace);
+        searchToPlaceMap.put(WHITELIST_DEFAULT_SEARCH, WebAdminApplicationPlaces.whitelistMainPlace);
         searchToPlaceMap.put(STORAGE_DEFAULT_SEARCH, WebAdminApplicationPlaces.storageMainPlace);
         searchToPlaceMap.put(TEMPLATE_DEFAULT_SEARCH, WebAdminApplicationPlaces.templateMainPlace);
         searchToPlaceMap.put(USERS_DEFAULT_SEARCH, WebAdminApplicationPlaces.userMainPlace);

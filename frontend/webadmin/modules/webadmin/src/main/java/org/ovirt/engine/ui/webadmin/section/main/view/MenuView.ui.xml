@@ -188,7 +188,6 @@
                             </b:Anchor>
                         </b:ListGroupItem>
                     </b:ListGroup>
-                    <!--iwooook-->
                     <b:ListGroup>
                         <b:ListGroupItem>
                             <b:Anchor href="#whitelist" targetHistoryToken="whitelist" ui:field="whitelistAnchor">

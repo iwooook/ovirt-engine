@@ -150,7 +150,6 @@ public class MenuView extends AbstractView implements MenuPresenterWidget.ViewDe
     @WithElementId
     @UiField
     Anchor configureAnchor;
-    // iwooook
     @WithElementId
     @UiField
     Anchor whitelistAnchor;
@@ -404,7 +403,6 @@ public class MenuView extends AbstractView implements MenuPresenterWidget.ViewDe
         hrefToGroupLabelMap.put(sessionsAnchor.getTargetHistoryToken(), administrationSecondaryItem);
         hrefToGroupLabelMap.put(usersAnchor.getTargetHistoryToken(), administrationSecondaryItem);
         hrefToGroupLabelMap.put(errataAnchor.getTargetHistoryToken(), administrationSecondaryItem);
-        // iwooook
         hrefToGroupLabelMap.put(whitelistAnchor.getTargetHistoryToken(), administrationSecondaryItem);
 
         hrefToGroupLabelMap.put(eventsAnchor.getTargetHistoryToken(), eventsPrimaryItem);

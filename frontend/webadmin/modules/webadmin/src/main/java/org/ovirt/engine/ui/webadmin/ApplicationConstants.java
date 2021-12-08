@@ -73,7 +73,6 @@ public interface ApplicationConstants extends CommonApplicationConstants {
 
     String errataMainViewLabel();
 
-    // iwooook
     String whitelistMainViewLabel();
 
     String errataDetailsSubTabLabel();

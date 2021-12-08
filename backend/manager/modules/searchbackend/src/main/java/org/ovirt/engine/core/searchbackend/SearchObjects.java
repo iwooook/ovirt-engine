@@ -40,6 +40,8 @@ public final class SearchObjects {
     public static final String GLUSTER_VOLUME_PLU_OBJ_NAME = "VOLUMES";
     public static final String QUOTA_OBJ_NAME = "QUOTA";
     public static final String QUOTA_PLU_OBJ_NAME = "QUOTAS";
+    public static final String WHITELIST_OBJ_NAME = "WHITELIST";
+    public static final String WHITELIST_PLU_OBJ_NAME = "WHITELISTS";
     public static final String NETWORK_OBJ_NAME = "NETWORK";
     public static final String NETWORK_PLU_OBJ_NAME = "NETWORKS";
     public static final String VDS_NETWORK_INTERFACE_OBJ_NAME = "NIC";

@@ -84,12 +84,12 @@ public class WhitelistListModel<E> extends ListWithSimpleDetailsModel<E, Whiteli
     @Inject
     public WhitelistListModel() {
         
-        setTitle(ConstantsManager.getInstance().getConstants().quotaTitle());
+        setTitle(ConstantsManager.getInstance().getConstants().whitelistTitle());
         setApplicationPlace(WebAdminApplicationPlaces.whitelistMainPlace);
 
-        setDefaultSearchString(SearchStringMapping.QUOTA_DEFAULT_SEARCH + ":"); //$NON-NLS-1$
+        setDefaultSearchString(SearchStringMapping.WHITELIST_DEFAULT_SEARCH + ":"); //$NON-NLS-1$
         setSearchString(getDefaultSearchString());
-        setSearchObjects(new String[] { SearchObjects.QUOTA_OBJ_NAME, SearchObjects.QUOTA_PLU_OBJ_NAME });
+        setSearchObjects(new String[] { SearchObjects.WHITELIST_OBJ_NAME, SearchObjects.WHITELIST_PLU_OBJ_NAME });
         setAvailableInModes(ApplicationMode.VirtOnly);
 
         setCreateCommand(new UICommand("Create", this)); //$NON-NLS-1$

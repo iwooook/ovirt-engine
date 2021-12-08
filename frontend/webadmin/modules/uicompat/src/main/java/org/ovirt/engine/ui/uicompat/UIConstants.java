@@ -215,6 +215,8 @@ public interface UIConstants extends Constants {
 
     String quotaTitle();
 
+    String whitelistTitle();
+
     String networkQoSTitle();
 
     String storageQosTitle();
