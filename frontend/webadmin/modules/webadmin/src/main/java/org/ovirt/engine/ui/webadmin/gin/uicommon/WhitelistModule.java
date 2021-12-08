@@ -83,7 +83,7 @@ public class WhitelistModule extends AbstractGinModule {
     }
 
     // Search-able Detail Models
-    
+    /*
     @Provides
     @Singleton
     public SearchableDetailModelProvider<Permission, QuotaListModel, QuotaUserListModel>
@@ -190,7 +190,7 @@ public class WhitelistModule extends AbstractGinModule {
         result.setModelProvider(modelProvider);
         return result;
     }
-
+    */
     @Override
     protected void configure() {
         bind(WhitelistListModel.class).in(Singleton.class);
