@@ -58,7 +58,7 @@ public class WhitelistModule extends AbstractGinModule {
                     public AbstractModelBoundPopupPresenterWidget<? extends Model, ?> getModelPopup(
                         WhitelistListModel source,
                             UICommand lastExecutedCommand, Model windowModel) {
-                        if (lastExecutedCommand.equals(getModel().getCreateCommand())
+                        if (lastExecutedCommand.equals(getModel().getAddCommand())
                                 || lastExecutedCommand.equals(getModel().getEditCommand())) {
                             return quotaPopupProvider.get();
                         } else {

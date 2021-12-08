@@ -3,12 +3,10 @@ package org.ovirt.engine.ui.webadmin.section.main.presenter.tab;
 import javax.inject.Inject;
 
 import org.ovirt.engine.core.common.businessentities.Whitelist;
-import org.ovirt.engine.core.common.businessentities.Quota;
 import org.ovirt.engine.ui.common.presenter.ActionPanelPresenterWidget;
 import org.ovirt.engine.ui.common.uicommon.model.MainModelProvider;
 import org.ovirt.engine.ui.uicommonweb.UICommand;
 import org.ovirt.engine.ui.uicommonweb.models.whitelists.WhitelistListModel;
-import org.ovirt.engine.ui.uicommonweb.models.quota.QuotaListModel;
 import org.ovirt.engine.ui.webadmin.ApplicationConstants;
 import org.ovirt.engine.ui.webadmin.gin.AssetProvider;
 import org.ovirt.engine.ui.webadmin.widget.action.WebAdminButtonDefinition;
@@ -30,15 +28,14 @@ public class WhitelistActionPanelPresenterWidget<E> extends ActionPanelPresenter
 
     @Override
     protected void initializeButtons() {
-        
         newButtonDefinition = new WebAdminButtonDefinition<E, Whitelist>(constants.addWhitelist()) {
             @Override
             protected UICommand resolveCommand() {
                 return getModel().getAddCommand();
             }
         };
-        /*
         addActionButton(newButtonDefinition);
+        /*
         addActionButton(new WebAdminButtonDefinition<E, Quota>(constants.editQuota()) {
             @Override
             protected UICommand resolveCommand() {
