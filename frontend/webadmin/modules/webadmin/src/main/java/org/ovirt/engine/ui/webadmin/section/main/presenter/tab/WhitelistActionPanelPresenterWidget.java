@@ -30,13 +30,14 @@ public class WhitelistActionPanelPresenterWidget<E> extends ActionPanelPresenter
 
     @Override
     protected void initializeButtons() {
-        /*
-        newButtonDefinition = new WebAdminButtonDefinition<E, Quota>(constants.addQuota()) {
+        
+        newButtonDefinition = new WebAdminButtonDefinition<E, Whitelist>(constants.addWhitelist()) {
             @Override
             protected UICommand resolveCommand() {
                 return getModel().getCreateCommand();
             }
         };
+        /*
         addActionButton(newButtonDefinition);
         addActionButton(new WebAdminButtonDefinition<E, Quota>(constants.editQuota()) {
             @Override

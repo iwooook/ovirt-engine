@@ -1719,6 +1719,8 @@ public interface ApplicationConstants extends CommonApplicationConstants {
 
     String editCellQuota();
 
+    String addWhitelist();
+
     String whitelistDbId();
 
     String whitelistIpAddr();
