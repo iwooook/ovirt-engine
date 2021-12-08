@@ -2,6 +2,7 @@ package org.ovirt.engine.ui.webadmin.section.main.view;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Comparator;
 
 import org.ovirt.engine.core.common.businessentities.Whitelist;
 import org.ovirt.engine.core.common.businessentities.Quota;
@@ -9,6 +10,7 @@ import org.ovirt.engine.core.common.businessentities.QuotaCluster;
 import org.ovirt.engine.core.common.businessentities.QuotaStorage;
 import org.ovirt.engine.core.common.utils.SizeConverter;
 import org.ovirt.engine.core.searchbackend.QuotaConditionFieldAutoCompleter;
+import org.ovirt.engine.core.searchbackend.WhitelistConditionFieldAutoCompleter;
 import org.ovirt.engine.ui.common.idhandler.ElementIdHandler;
 import org.ovirt.engine.ui.common.presenter.FragmentParams;
 import org.ovirt.engine.ui.common.uicommon.model.MainModelProvider;
@@ -28,6 +30,7 @@ import org.ovirt.engine.ui.webadmin.widget.table.column.QuotaDcStatusColumn;
 
 import com.google.gwt.cell.client.FieldUpdater;
 import com.google.gwt.core.client.GWT;
+import com.google.gwt.i18n.client.DateTimeFormat;
 import com.google.gwt.i18n.client.NumberFormat;
 import com.google.inject.Inject;
 
@@ -58,8 +61,8 @@ public class MainWhitelistView extends AbstractMainWithDetailsTableView<Whitelis
                         return whitelist.getId().toString();
                     }
                 };
-        //whitelistDbIdColumn.makeSortable(SessionConditionFieldAutoCompleter.SESSION_DB_ID);
-        getTable().addColumn(whitelistDbIdColumn, constants.whitelistDbId(), "100px"); //$NON-NLS-1$
+        whitelistDbIdColumn.makeSortable(WhitelistConditionFieldAutoCompleter.WHITELIST_DB_ID);
+        getTable().addColumn(whitelistDbIdColumn, constants.whitelistDbId(), "200px"); //$NON-NLS-1$
 
         AbstractTextColumn<Whitelist> ipAddressColumn =
                 new AbstractTextColumn<Whitelist>() {
@@ -68,7 +71,7 @@ public class MainWhitelistView extends AbstractMainWithDetailsTableView<Whitelis
                         return whitelist.getIpAddress();
                     }
                 };
-        //userNameColumn.makeSortable(SessionConditionFieldAutoCompleter.USER_NAME);
+        ipAddressColumn.makeSortable(WhitelistConditionFieldAutoCompleter.IP_ADDRESS);
         getTable().addColumn(ipAddressColumn, constants.whitelistIpAddr(), "200px"); //$NON-NLS-1$
 
         AbstractTextColumn<Whitelist> userNameColumn =
@@ -78,9 +81,33 @@ public class MainWhitelistView extends AbstractMainWithDetailsTableView<Whitelis
                         return whitelist.getUserName();
                     }
                 };
-        //userNameColumn.makeSortable(SessionConditionFieldAutoCompleter.USER_NAME);
+        userNameColumn.makeSortable(WhitelistConditionFieldAutoCompleter.USER_NAME);
         getTable().addColumn(userNameColumn, constants.userNameUser(), "200px"); //$NON-NLS-1$
+
+        AbstractTextColumn<Whitelist> userIdColumn =
+                new AbstractTextColumn<Whitelist>() {
+                    @Override
+                    public String getValue(Whitelist whitelist) {
+                        return whitelist.getUserId().toString();
+                    }
+                };
+        userIdColumn.makeSortable(WhitelistConditionFieldAutoCompleter.USER_ID);
+        getTable().addColumn(userIdColumn, constants.userId(), "200px"); //$NON-NLS-1$
         
+        final DateTimeFormat dateFormat = DateTimeFormat.getFormat(DateTimeFormat.PredefinedFormat.DATE_TIME_MEDIUM);
+
+        AbstractTextColumn<Whitelist> registrationTimeColumn =
+                new AbstractTextColumn<Whitelist>() {
+                    @Override
+                    public String getValue(Whitelist whitelist) {
+                        return whitelist.getRegistrationTime() == null ?
+                                "" : //$NON-NLS-1$
+                                dateFormat.format(whitelist.getRegistrationTime());
+                    }
+                };
+        registrationTimeColumn.makeSortable(Comparator.comparing(Whitelist::getRegistrationTime));
+        getTable().addColumn(registrationTimeColumn, constants.sessionStartTime(), "200px"); //$NON-NLS-1$
+
         /*
         QuotaDcStatusColumn dcStatusColumn = new QuotaDcStatusColumn();
         dcStatusColumn.setContextMenuTitle(constants.dcStatusQuota());

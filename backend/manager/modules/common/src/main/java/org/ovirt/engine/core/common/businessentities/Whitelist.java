@@ -3,6 +3,7 @@ package org.ovirt.engine.core.common.businessentities;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.Date;
 
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
@@ -122,8 +123,10 @@ public class Whitelist implements Queryable, BusinessEntity<Guid>, Nameable {
      */
     private List<QuotaStorage> quotaStorageList;
 
+    private Guid userId;
     private String userName = "FIXME, userName";
     private String ipAddress = "FIXME, ipAddress";
+    private Date registrationTime;
 
     /**
      * Default constructor of Quota, which initialize empty lists for specific limitations, and no user assigned.
@@ -425,5 +428,13 @@ public class Whitelist implements Queryable, BusinessEntity<Guid>, Nameable {
 
     public String getIpAddress() {
         return ipAddress;
+    }
+
+    public Guid getUserId() {
+        return userId;
+    }
+
+    public Date getRegistrationTime() {
+        return registrationTime;
     }
 }

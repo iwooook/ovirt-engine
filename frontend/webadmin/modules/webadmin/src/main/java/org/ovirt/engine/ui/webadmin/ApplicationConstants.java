@@ -1723,6 +1723,8 @@ public interface ApplicationConstants extends CommonApplicationConstants {
 
     String whitelistIpAddr();
 
+    String whitelistRegistrationTime();
+
     String attachedNetwork();
 
     String nameNetwork();
