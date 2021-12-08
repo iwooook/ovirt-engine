@@ -436,6 +436,9 @@ public enum ActionType {
     // External events
     AddExternalEvent(1500, ActionGroup.INJECT_EXTERNAL_EVENTS, QuotaDependency.NONE),
 
+    // Whitelist
+    AddWhitelist(1550, false, QuotaDependency.NONE),
+
     // Providers
     AddProvider(1600, false, QuotaDependency.NONE),
     UpdateProvider(1601, false, QuotaDependency.NONE),
