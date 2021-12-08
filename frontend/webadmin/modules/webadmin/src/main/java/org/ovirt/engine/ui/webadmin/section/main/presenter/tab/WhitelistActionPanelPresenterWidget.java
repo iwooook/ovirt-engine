@@ -34,26 +34,18 @@ public class WhitelistActionPanelPresenterWidget<E> extends ActionPanelPresenter
                 return getModel().getAddCommand();
             }
         });
-        /*
-        addActionButton(new WebAdminButtonDefinition<E, Quota>(constants.editQuota()) {
+        addActionButton(new WebAdminButtonDefinition<E, Whitelist>(constants.editWhitelist()) {
             @Override
             protected UICommand resolveCommand() {
                 return getModel().getEditCommand();
             }
         });
-        addActionButton(new WebAdminButtonDefinition<E, Quota>(constants.copyQuota()) {
-            @Override
-            protected UICommand resolveCommand() {
-                return getModel().getCloneCommand();
-            }
-        });
-        addActionButton(new WebAdminButtonDefinition<E, Quota>(constants.removeQuota()) {
+        addActionButton(new WebAdminButtonDefinition<E, Whitelist>(constants.removeWhitelist()) {
             @Override
             protected UICommand resolveCommand() {
                 return getModel().getRemoveCommand();
             }
         });
-        */
     }
 
     public WebAdminButtonDefinition<E, Whitelist> getNewButtonDefinition() {

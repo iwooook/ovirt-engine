@@ -1721,6 +1721,10 @@ public interface ApplicationConstants extends CommonApplicationConstants {
 
     String addWhitelist();
 
+    String editWhitelist();
+
+    String removeWhitelist();
+
     String whitelistDbId();
 
     String whitelistIpAddr();
