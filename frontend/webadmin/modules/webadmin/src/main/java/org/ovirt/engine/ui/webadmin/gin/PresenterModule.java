@@ -12,6 +12,7 @@ import org.ovirt.engine.core.common.businessentities.MacPool;
 import org.ovirt.engine.core.common.businessentities.Permission;
 import org.ovirt.engine.core.common.businessentities.Provider;
 import org.ovirt.engine.core.common.businessentities.Quota;
+import org.ovirt.engine.core.common.businessentities.Whitelist;
 import org.ovirt.engine.core.common.businessentities.Role;
 import org.ovirt.engine.core.common.businessentities.Snapshot;
 import org.ovirt.engine.core.common.businessentities.StorageDomain;
@@ -58,6 +59,7 @@ import org.ovirt.engine.ui.common.presenter.ExpandAllButtonPresenterWidget;
 import org.ovirt.engine.ui.common.presenter.NetworkBreadCrumbsPresenterWidget;
 import org.ovirt.engine.ui.common.presenter.OvirtBreadCrumbsPresenterWidget;
 import org.ovirt.engine.ui.common.presenter.QuotaBreadCrumbsPresenterWidget;
+import org.ovirt.engine.ui.common.presenter.WhitelistBreadCrumbsPresenterWidget;
 import org.ovirt.engine.ui.common.presenter.ShowHideVfPresenterWidget;
 import org.ovirt.engine.ui.common.presenter.TemplateBreadCrumbsPresenterWidget;
 import org.ovirt.engine.ui.common.presenter.VnicProfileBreadCrumbsPresenterWidget;
@@ -71,6 +73,7 @@ import org.ovirt.engine.ui.common.view.ExpandAllButtonView;
 import org.ovirt.engine.ui.common.view.NetworkBreadCrumbsView;
 import org.ovirt.engine.ui.common.view.OvirtBreadCrumbsView;
 import org.ovirt.engine.ui.common.view.QuotaBreadCrumbsView;
+import org.ovirt.engine.ui.common.view.WhitelistBreadCrumbsView;
 import org.ovirt.engine.ui.common.view.ShowHideVfButtonView;
 import org.ovirt.engine.ui.common.view.TemplateBreadCrumbsView;
 import org.ovirt.engine.ui.common.view.VnicProfileBreadCrumbsView;
@@ -90,6 +93,7 @@ import org.ovirt.engine.ui.uicommonweb.models.networks.NetworkListModel;
 import org.ovirt.engine.ui.uicommonweb.models.pools.PoolListModel;
 import org.ovirt.engine.ui.uicommonweb.models.providers.ProviderListModel;
 import org.ovirt.engine.ui.uicommonweb.models.quota.QuotaListModel;
+import org.ovirt.engine.ui.uicommonweb.models.whitelists.WhitelistListModel;
 import org.ovirt.engine.ui.uicommonweb.models.storage.StorageListModel;
 import org.ovirt.engine.ui.uicommonweb.models.templates.TemplateListModel;
 import org.ovirt.engine.ui.uicommonweb.models.users.UserListModel;
@@ -118,7 +122,6 @@ import org.ovirt.engine.ui.webadmin.section.main.presenter.MainUserPresenter;
 import org.ovirt.engine.ui.webadmin.section.main.presenter.MainVirtualMachinePresenter;
 import org.ovirt.engine.ui.webadmin.section.main.presenter.MainVnicProfilePresenter;
 import org.ovirt.engine.ui.webadmin.section.main.presenter.MainVolumePresenter;
-import org.ovirt.engine.ui.webadmin.section.main.presenter.MainWhitelistPresenter;
 import org.ovirt.engine.ui.webadmin.section.main.presenter.MenuPresenterWidget;
 import org.ovirt.engine.ui.webadmin.section.main.presenter.NotificationPresenterWidget;
 import org.ovirt.engine.ui.webadmin.section.main.presenter.SearchPanelPresenterWidget;
@@ -1320,6 +1323,17 @@ public class PresenterModule extends BasePresenterModule {
                 QuotaBreadCrumbsView.class);
         bindActionPanel(new TypeLiteral<ActionPanelPresenterWidget.ViewDef<Void, Quota>>(){},
             new TypeLiteral<ActionPanelView<Void, Quota>>(){});
+
+        // Whitelist
+        bindSingletonPresenterWidget(
+                new TypeLiteral<SearchPanelPresenterWidget<Whitelist, WhitelistListModel>>(){},
+                new TypeLiteral<SearchPanelPresenterWidget.ViewDef<WhitelistListModel>>(){},
+                new TypeLiteral<SearchPanelView<WhitelistListModel>>(){});      
+        bindPresenterWidget(WhitelistBreadCrumbsPresenterWidget.class,
+                WhitelistBreadCrumbsPresenterWidget.QuotaBreadCrumbsViewDef.class,
+                WhitelistBreadCrumbsView.class);
+        bindActionPanel(new TypeLiteral<ActionPanelPresenterWidget.ViewDef<Void, Whitelist>>(){},
+            new TypeLiteral<ActionPanelView<Void, Whitelist>>(){});
 
         // Disk
         bindPresenter(DiskSubTabPanelPresenter.class,
