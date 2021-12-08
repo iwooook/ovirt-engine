@@ -304,6 +304,12 @@ public class WhitelistModel extends Model {
         }
     }
 
+    @Override
+    public void executeCommand(UICommand command) {
+        super.executeCommand(command);
+
+    }
+
     public WhitelistModel(SearchableListModel sourceListModel, ActionType action, final Whitelist whitelist) {
         this.sourceListModel = sourceListModel;
         this.action = action;
