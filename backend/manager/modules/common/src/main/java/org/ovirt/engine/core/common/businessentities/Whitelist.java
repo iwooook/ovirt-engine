@@ -27,30 +27,18 @@ public class Whitelist implements Queryable {
         return id;
     }
 
-    /**
-     * @param id
-     *            the quota Id to set.
-     */
     public void setId(Guid id) {
         this.id = id;
     }
 
-    /**
-     * @return the description
-     */
     public String getDescription() {
         return description;
     }
 
-    /**
-     * @param description
-     *            the description to set
-     */
     public void setDescription(String description) {
         this.description = description == null ? "" : description;
     }
 
-   
     @Override
     public Object getQueryableId() {
         return getId();

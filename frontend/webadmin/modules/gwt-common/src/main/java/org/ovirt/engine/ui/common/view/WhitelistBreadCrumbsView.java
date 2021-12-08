@@ -22,9 +22,6 @@ public class WhitelistBreadCrumbsView extends OvirtBreadCrumbsView<Whitelist, Wh
     public SafeHtml getName(Whitelist item) {
         SafeHtmlBuilder builder = new SafeHtmlBuilder();
         builder.append(super.getName(item));
-        builder.appendEscaped(" ("); // $NON-NLS-1$
-        builder.appendEscaped(item.getStoragePoolName());
-        builder.appendEscaped(")"); // $NON-NLS-1$
         return builder.toSafeHtml();
     }
 
