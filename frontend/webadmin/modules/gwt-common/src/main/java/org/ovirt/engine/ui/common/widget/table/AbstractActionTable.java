@@ -3,7 +3,6 @@ package org.ovirt.engine.ui.common.widget.table;
 import static org.ovirt.engine.ui.common.widget.table.AbstractActionTable.ColumnSortListHelper.moveHeaderSortState;
 
 import java.util.List;
-
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -68,7 +67,7 @@ import com.google.gwt.view.client.SelectionModel;
  */
 public abstract class AbstractActionTable<E, T> extends AbstractActionPanel<T> implements ActionTable<T>, HasColumns<T> {
 
-    private static final Logger logger = Logger.getLogger("iwooook log: ");
+    private static final Logger logger = Logger.getLogger("AbstractActionTable, ");
 
     private static final String ARIA_EXPANDED = "aria-expanded"; //$NON-NLS-1$
     private static final String OPEN = "open";  //$NON-NLS-1$
@@ -163,6 +162,7 @@ public abstract class AbstractActionTable<E, T> extends AbstractActionPanel<T> i
             @Override
             protected void onLoadingStateChanged(LoadingState state) {
                 super.onLoadingStateChanged(state);
+                logger.log(Level.WARNING, "in onLoadingStateChanged, 111"); 
                 if (state == LoadingState.LOADING) {
                     Scheduler.get().scheduleDeferred(() -> doAutoSelect = true);
                 } else if (state == LoadingState.LOADED) {
@@ -177,6 +177,7 @@ public abstract class AbstractActionTable<E, T> extends AbstractActionPanel<T> i
                         }
                     });
                 }
+                logger.log(Level.WARNING, "in onLoadingStateChanged, 222");
             }
 
             @Override
@@ -197,8 +198,6 @@ public abstract class AbstractActionTable<E, T> extends AbstractActionPanel<T> i
 
         // Apply selection model to the table widget
         this.selectionModel.asMultiSelectionModel().setDataDisplay(table);
-
-        logger.log(Level.WARNING, "123123"); 
 
         // Default to 'no items to display'
         this.table.setEmptyTableWidget(new NoItemsLabel());
