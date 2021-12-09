@@ -4,6 +4,9 @@ import static org.ovirt.engine.ui.common.widget.table.AbstractActionTable.Column
 
 import java.util.List;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 import org.gwtbootstrap3.client.ui.AnchorListItem;
 import org.gwtbootstrap3.client.ui.Divider;
 import org.gwtbootstrap3.client.ui.DropDownHeader;
@@ -64,6 +67,8 @@ import com.google.gwt.view.client.SelectionModel;
  *            Table row data type.
  */
 public abstract class AbstractActionTable<E, T> extends AbstractActionPanel<T> implements ActionTable<T>, HasColumns<T> {
+
+    private static final Logger logger = Logger.getLogger("iwooook log: ");
 
     private static final String ARIA_EXPANDED = "aria-expanded"; //$NON-NLS-1$
     private static final String OPEN = "open";  //$NON-NLS-1$
@@ -192,6 +197,8 @@ public abstract class AbstractActionTable<E, T> extends AbstractActionPanel<T> i
 
         // Apply selection model to the table widget
         this.selectionModel.asMultiSelectionModel().setDataDisplay(table);
+
+        logger.log(Level.WARNING, "123123"); 
 
         // Default to 'no items to display'
         this.table.setEmptyTableWidget(new NoItemsLabel());
