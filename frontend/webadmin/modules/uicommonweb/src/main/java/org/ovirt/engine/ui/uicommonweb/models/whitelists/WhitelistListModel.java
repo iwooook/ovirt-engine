@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 import org.ovirt.engine.core.common.action.ActionParametersBase;
 import org.ovirt.engine.core.common.action.ActionType;
 import org.ovirt.engine.core.common.action.IdParameters;
@@ -37,6 +40,8 @@ import com.google.inject.Inject;
 
 // FIXME <Void, Whitelist>
 public class WhitelistListModel extends ListWithSimpleDetailsModel<Whitelist, Whitelist> {
+
+    private static final Logger logger = Logger.getLogger("WhitelistListModel: ");
 
     private static final String CMD_ADD = "Add"; //$NON-NLS-1$
     private static final String CMD_EDIT = "Edit"; //$NON-NLS-1$
@@ -146,6 +151,8 @@ public class WhitelistListModel extends ListWithSimpleDetailsModel<Whitelist, Wh
     */
 
     private void add() {
+        logger.log(Level.WARNING, "add() called"); 
+
         if (getWindow() != null) {
             return;
         }
