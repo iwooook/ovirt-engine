@@ -229,7 +229,8 @@ public class WhitelistPopupView extends AbstractModelBoundPopupView<WhitelistMod
     }
 
     @Override
-    public void edit(ProviderModel model) {
+    public void edit(WhitelistModel model) {
+        /*
         providerModel = model;
         driver.edit(model);
         vmwarePropertiesWidget.edit(model.getVmwarePropertiesModel());
@@ -242,10 +243,11 @@ public class WhitelistPopupView extends AbstractModelBoundPopupView<WhitelistMod
         }
 
         updatePasswordTitle();
+        */
     }
 
     @Override
-    public ProviderModel flush() {
+    public WhitelistModel flush() {
         vmwarePropertiesWidget.flush();
         kvmPropertiesWidget.flush();
         xenPropertiesWidget.flush();
@@ -289,6 +291,7 @@ public class WhitelistPopupView extends AbstractModelBoundPopupView<WhitelistMod
 
     @Override
     public void setCurrentActiveProviderWidget() {
+        /*
         if (providerModel != null) {
             if (providerModel.getDataCenter().getIsAvailable()) {
                 typeEditorRow.removeStyleName(style.headerSeparator());
@@ -303,9 +306,11 @@ public class WhitelistPopupView extends AbstractModelBoundPopupView<WhitelistMod
             xenPropertiesWidget.setVisible(providerModel.getXenPropertiesModel().getIsAvailable());
             kubevirtPropertiesWidget.setVisible(providerModel.getKubevirtPropertiesModel().getIsAvailable());
         }
+        */
     }
 
     @Override public void updatePasswordTitle() {
+        /*
         if (providerModel.getType() == null || providerModel.getType().getSelectedItem() == null) {
             return;
         }
@@ -320,6 +325,7 @@ public class WhitelistPopupView extends AbstractModelBoundPopupView<WhitelistMod
             break;
         }
         passwordEditor.setLabel(passwordLabel);
+        */
     }
 
     @Override

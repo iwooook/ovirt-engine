@@ -3,15 +3,16 @@ package org.ovirt.engine.ui.webadmin.section.main.presenter.popup.whitelist;
 import org.ovirt.engine.ui.common.presenter.AbstractModelBoundPopupPresenterWidget;
 import org.ovirt.engine.ui.common.widget.HasUiCommandClickHandlers;
 import org.ovirt.engine.ui.uicommonweb.models.providers.ProviderModel;
+import org.ovirt.engine.ui.uicommonweb.models.whitelists.WhitelistModel;
 
 import com.google.gwt.event.shared.EventBus;
 import com.google.inject.Inject;
 
-public class WhitelistPopupPresenterWidget extends AbstractModelBoundPopupPresenterWidget<ProviderModel, WhitelistPopupPresenterWidget.ViewDef> {
+public class WhitelistPopupPresenterWidget extends AbstractModelBoundPopupPresenterWidget<WhitelistModel, WhitelistPopupPresenterWidget.ViewDef> {
 
     private static final String IS_AVAILABLE = "IsAvailable"; //$NON-NLS-1$
 
-    public interface ViewDef extends AbstractModelBoundPopupPresenterWidget.ViewDef<ProviderModel> {
+    public interface ViewDef extends AbstractModelBoundPopupPresenterWidget.ViewDef<WhitelistModel> {
         HasUiCommandClickHandlers getTestButton();
         void setTestResult(String errorMessage);
         void setCurrentActiveProviderWidget();
@@ -24,9 +25,10 @@ public class WhitelistPopupPresenterWidget extends AbstractModelBoundPopupPresen
     }
 
     @Override
-    public void init(final ProviderModel model) {
+    public void init(final WhitelistModel model) {
         super.init(model);
 
+        /*
         registerHandler(getView().getTestButton().addClickHandler(event -> model.getTestCommand().execute()));
 
         model.getTestResult().getEntityChangedEvent().addListener((ev, sender, args) ->
@@ -64,6 +66,7 @@ public class WhitelistPopupPresenterWidget extends AbstractModelBoundPopupPresen
         model.getType().getSelectedItemChangedEvent().addListener((ev, sender, args) -> {
             getView().updatePasswordTitle();
         });
+        */
     }
 
 }
