@@ -38,14 +38,9 @@ import org.ovirt.engine.ui.uicommonweb.place.WebAdminApplicationPlaces;
 import org.ovirt.engine.ui.uicompat.ConstantsManager;
 import com.google.inject.Inject;
 
-// FIXME <Void, Whitelist>
-public class WhitelistListModel extends ListWithSimpleDetailsModel<Whitelist, Whitelist> {
+public class WhitelistListModel extends ListWithSimpleDetailsModel<Void, Whitelist> {
 
     private static final Logger logger = Logger.getLogger("WhitelistListModel: ");
-
-    private static final String CMD_ADD = "Add"; //$NON-NLS-1$
-    private static final String CMD_EDIT = "Edit"; //$NON-NLS-1$
-    private static final String CMD_REMOVE = "Remove"; //$NON-NLS-1$
 
     private UICommand addCommand;
     private UICommand editCommand;
@@ -53,8 +48,7 @@ public class WhitelistListModel extends ListWithSimpleDetailsModel<Whitelist, Wh
 
     @Inject
     public WhitelistListModel() {
-        // FIXME
-        setModelList();
+        logger.log(Level.WARNING, "WhitelistListModel constructor"); 
 
         setTitle(ConstantsManager.getInstance().getConstants().whitelistTitle());
         //setHelpTag(HelpTag.engine_sessions);
@@ -66,19 +60,14 @@ public class WhitelistListModel extends ListWithSimpleDetailsModel<Whitelist, Wh
         setSearchObjects(new String[] { SearchObjects.WHITELIST_OBJ_NAME, SearchObjects.WHITELIST_PLU_OBJ_NAME });
         setAvailableInModes(ApplicationMode.AllModes);
 
-        setAddCommand(new UICommand(CMD_ADD, this));
-        setEditCommand(new UICommand(CMD_EDIT, this));
-        setRemoveCommand(new UICommand(CMD_REMOVE, this));
+        setAddCommand(new UICommand("Add", this));
+        setEditCommand(new UICommand("Edit", this));
+        setRemoveCommand(new UICommand("Remove", this));
 
         updateActionAvailability();
 
         getSearchNextPageCommand().setIsAvailable(true);
         getSearchPreviousPageCommand().setIsAvailable(true);
-    }
-
-    private void setModelList() {
-        List<HasEntity<Whitelist>> list = new ArrayList<>();
-        setDetailModels(list);
     }
 
     public UICommand getAddCommand() {

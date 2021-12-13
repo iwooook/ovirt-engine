@@ -21,7 +21,6 @@ public class AddProviderModel extends ProviderModel {
         ProviderType type = Linq.firstOrNull(getType().getItems());
         getType().setSelectedItem(type);
         getNeutronAgentModel().init(provider, type); // this is okay because AdditionalProperties == null at this point
-
     }
 
     @Override

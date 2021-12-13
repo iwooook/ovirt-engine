@@ -16,7 +16,5 @@ public class AddWhitelistModel extends WhitelistModel {
     public AddWhitelistModel(WhitelistListModel sourceListModel) {
         super(sourceListModel, ActionType.AddWhitelist, new Whitelist());
         setTitle(ConstantsManager.getInstance().getConstants().addWhitelistTitle());
-        setHelpTag(HelpTag.add_provider);
-        setHashName("add_provider"); //$NON-NLS-1$
     }
 }
