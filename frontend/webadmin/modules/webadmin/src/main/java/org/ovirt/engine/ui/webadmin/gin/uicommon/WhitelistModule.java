@@ -31,6 +31,7 @@ import org.ovirt.engine.ui.uicommonweb.models.whitelists.WhitelistListModel;
 import org.ovirt.engine.ui.webadmin.section.main.presenter.popup.PermissionsPopupPresenterWidget;
 import org.ovirt.engine.ui.webadmin.section.main.presenter.popup.event.EventPopupPresenterWidget;
 import org.ovirt.engine.ui.webadmin.section.main.presenter.popup.quota.QuotaPopupPresenterWidget;
+import org.ovirt.engine.ui.webadmin.section.main.presenter.popup.whitelist.WhitelistPopupPresenterWidget;
 import org.ovirt.engine.ui.webadmin.section.main.presenter.tab.quota.QuotaMainSelectedItems;
 import org.ovirt.engine.ui.webadmin.section.main.presenter.tab.whitelist.WhitelistMainSelectedItems;
 
@@ -49,7 +50,7 @@ public class WhitelistModule extends AbstractGinModule {
     @Singleton
     public MainModelProvider<Whitelist, WhitelistListModel> getWhitelistListProvider(EventBus eventBus,
             Provider<DefaultConfirmationPopupPresenterWidget> defaultConfirmPopupProvider,
-            final Provider<QuotaPopupPresenterWidget> quotaPopupProvider,
+            final Provider<WhitelistPopupPresenterWidget> whitelistPopupProvider,
             final Provider<RemoveConfirmationPopupPresenterWidget> removeConfirmPopupProvider,
             final Provider<WhitelistListModel> modelProvider) {
         MainViewModelProvider<Whitelist, WhitelistListModel> result =
@@ -60,7 +61,7 @@ public class WhitelistModule extends AbstractGinModule {
                             UICommand lastExecutedCommand, Model windowModel) {
                         if (lastExecutedCommand.equals(getModel().getAddCommand())
                                 || lastExecutedCommand.equals(getModel().getEditCommand())) {
-                            return quotaPopupProvider.get();
+                            return whitelistPopupProvider.get();
                         } else {
                             return super.getModelPopup(source, lastExecutedCommand, windowModel);
                         }
