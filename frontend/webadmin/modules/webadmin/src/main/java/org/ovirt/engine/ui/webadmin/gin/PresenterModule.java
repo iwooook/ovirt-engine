@@ -209,6 +209,7 @@ import org.ovirt.engine.ui.webadmin.section.main.presenter.popup.provider.Extern
 import org.ovirt.engine.ui.webadmin.section.main.presenter.popup.provider.ImportNetworksPopupPresenterWidget;
 import org.ovirt.engine.ui.webadmin.section.main.presenter.popup.provider.ProviderPopupPresenterWidget;
 import org.ovirt.engine.ui.webadmin.section.main.presenter.popup.provider.ProviderSecretPopupPresenterWidget;
+import org.ovirt.engine.ui.webadmin.section.main.presenter.popup.whitelist.WhitelistPopupPresenterWidget;
 import org.ovirt.engine.ui.webadmin.section.main.presenter.popup.quota.ChangeQuotaPopupPresenterWidget;
 import org.ovirt.engine.ui.webadmin.section.main.presenter.popup.quota.EditQuotaClusterPopupPresenterWidget;
 import org.ovirt.engine.ui.webadmin.section.main.presenter.popup.quota.EditQuotaStoragePopupPresenterWidget;
@@ -491,6 +492,7 @@ import org.ovirt.engine.ui.webadmin.section.main.view.popup.provider.ExternalSub
 import org.ovirt.engine.ui.webadmin.section.main.view.popup.provider.ImportNetworksPopupView;
 import org.ovirt.engine.ui.webadmin.section.main.view.popup.provider.ProviderPopupView;
 import org.ovirt.engine.ui.webadmin.section.main.view.popup.provider.ProviderSecretPopupView;
+import org.ovirt.engine.ui.webadmin.section.main.view.popup.whitelist.WhitelistPopupView;
 import org.ovirt.engine.ui.webadmin.section.main.view.popup.qos.CpuQosPopupView;
 import org.ovirt.engine.ui.webadmin.section.main.view.popup.qos.HostNetworkQosPopupView;
 import org.ovirt.engine.ui.webadmin.section.main.view.popup.qos.StorageQosPopupView;
@@ -2020,6 +2022,11 @@ public class PresenterModule extends BasePresenterModule {
                 ProviderSecretPopupPresenterWidget.ViewDef.class,
                 ProviderSecretPopupView.class);
 
+        // Whitelist
+                bindPresenterWidget(WhitelistPopupPresenterWidget.class,
+                WhitelistPopupPresenterWidget.ViewDef.class,
+                WhitelistPopupView.class);
+                
         // Profile
         bindPresenterWidget(VnicProfilePopupPresenterWidget.class,
                 VnicProfilePopupPresenterWidget.ViewDef.class,
