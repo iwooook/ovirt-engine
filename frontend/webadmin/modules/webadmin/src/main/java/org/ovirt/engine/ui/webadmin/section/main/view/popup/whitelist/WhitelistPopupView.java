@@ -61,9 +61,9 @@ public class WhitelistPopupView extends AbstractModelBoundPopupView<WhitelistMod
     private static final ApplicationConstants constants = AssetProvider.getConstants();
 
     @UiField
-    @Path(value = "name.entity")
+    @Path(value = "ip.entity")
     @WithElementId
-    StringEntityModelTextBoxEditor nameEditor;
+    StringEntityModelTextBoxEditor ipEditor;
 
     @UiField
     @Path(value = "description.entity")
@@ -114,7 +114,7 @@ public class WhitelistPopupView extends AbstractModelBoundPopupView<WhitelistMod
 
     @Override
     public void focusInput() {
-        nameEditor.setFocus(true);
+        ipEditor.setFocus(true);
     }
 
     interface Style extends CssResource {
@@ -124,7 +124,7 @@ public class WhitelistPopupView extends AbstractModelBoundPopupView<WhitelistMod
 
     @Override
     public int setTabIndexes(int nextTabIndex) {
-        nameEditor.setTabIndex(nextTabIndex++);
+        ipEditor.setTabIndex(nextTabIndex++);
         descriptionEditor.setTabIndex(nextTabIndex++);
         return nextTabIndex;
     }

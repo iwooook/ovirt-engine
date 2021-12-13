@@ -1731,6 +1731,12 @@ public interface ApplicationConstants extends CommonApplicationConstants {
 
     String whitelistRegistrationTime();
 
+    String whitelistPopupGeneralTabLabel();
+
+    String ipWhitelist();
+
+    String descriptionWhitelist();
+
     String attachedNetwork();
 
     String nameNetwork();

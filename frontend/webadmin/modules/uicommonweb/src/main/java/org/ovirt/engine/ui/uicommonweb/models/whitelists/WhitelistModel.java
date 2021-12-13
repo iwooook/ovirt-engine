@@ -18,12 +18,11 @@ public class WhitelistModel extends Model {
     private final ActionType action;
     private final Whitelist whitelist;
 
-    // FIXME test for PopupView
-    private EntityModel<String> name = new EntityModel<>();
+    private EntityModel<String> ip = new EntityModel<>();
     private EntityModel<String> description = new EntityModel<>();
     
-    public EntityModel<String> getName() {
-        return name;
+    public EntityModel<String> getIp() {
+        return ip;
     } 
 
     public EntityModel<String> getDescription() {

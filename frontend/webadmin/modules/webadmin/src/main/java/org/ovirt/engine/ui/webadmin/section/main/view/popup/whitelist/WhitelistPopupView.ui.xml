@@ -37,14 +37,14 @@
         <d:content>
             <t:DialogTabPanel ui:field="tabPanel" height="100%">
                 <t:tab>
-                    <t:DialogTab ui:field="generalTab" label="{constants.providerPopupGeneralTabLabel}">
+                    <t:DialogTab ui:field="generalTab" label="{constants.whitelistPopupGeneralTabLabel}">
                         <t:content>
                             <b:Container addStyleNames="{style.container}">
                                 <b:Row addStyleNames="{style.topElement}">
-                                    <ge:StringEntityModelTextBoxEditor ui:field="nameEditor" label="{constants.nameProvider}" usePatternFly="true" labelColSize="SM_6" widgetColSize="SM_6" />
+                                    <ge:StringEntityModelTextBoxEditor ui:field="ipEditor" label="{constants.ipWhitelist}" usePatternFly="true" labelColSize="SM_6" widgetColSize="SM_6" />
                                 </b:Row>
                                 <b:Row>
-                                    <ge:StringEntityModelTextBoxEditor ui:field="descriptionEditor" label="{constants.descriptionProvider}" usePatternFly="true" labelColSize="SM_6" widgetColSize="SM_6" />
+                                    <ge:StringEntityModelTextBoxEditor ui:field="descriptionEditor" label="{constants.descriptionWhitelist}" usePatternFly="true" labelColSize="SM_6" widgetColSize="SM_6" />
                                 </b:Row>
                             </b:Container>
                         </t:content>
