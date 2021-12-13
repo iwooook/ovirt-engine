@@ -70,9 +70,6 @@ public class WhitelistPopupView extends AbstractModelBoundPopupView<WhitelistMod
     @WithElementId
     StringEntityModelTextBoxEditor descriptionEditor;
 
-    @UiField
-    UiCommandButton testButton;
-
     private WhitelistModel whitelistModel;
 
     @SuppressWarnings({ "rawtypes", "unchecked" })
@@ -87,6 +84,8 @@ public class WhitelistPopupView extends AbstractModelBoundPopupView<WhitelistMod
 
     @Override
     public void edit(WhitelistModel model) {
+        whitelistModel = model;
+        driver.edit(model);
         /*
         providerModel = model;
         driver.edit(model);
@@ -124,59 +123,9 @@ public class WhitelistPopupView extends AbstractModelBoundPopupView<WhitelistMod
     }
 
     @Override
-    public HasUiCommandClickHandlers getTestButton() {
-        return testButton;
-    }
-
-    @Override
-    public void setTestResult(String errorMessage) {
-
-    }
-
-    @Override
-    public void setCurrentActiveProviderWidget() {
-        /*
-        if (providerModel != null) {
-            if (providerModel.getDataCenter().getIsAvailable()) {
-                typeEditorRow.removeStyleName(style.headerSeparator());
-                datacenterEditorRow.addStyleName(style.headerSeparator());
-            } else {
-                typeEditorRow.addStyleName(style.headerSeparator());
-                datacenterEditorRow.removeStyleName(style.headerSeparator());
-            }
-            networkingPanel.setVisible(providerModel.getNeutronAgentModel().getIsAvailable());
-            kvmPropertiesWidget.setVisible(providerModel.getKvmPropertiesModel().getIsAvailable());
-            vmwarePropertiesWidget.setVisible(providerModel.getVmwarePropertiesModel().getIsAvailable());
-            xenPropertiesWidget.setVisible(providerModel.getXenPropertiesModel().getIsAvailable());
-            kubevirtPropertiesWidget.setVisible(providerModel.getKubevirtPropertiesModel().getIsAvailable());
-        }
-        */
-    }
-
-    @Override public void updatePasswordTitle() {
-        /*
-        if (providerModel.getType() == null || providerModel.getType().getSelectedItem() == null) {
-            return;
-        }
-
-        String passwordLabel;
-        switch (providerModel.getType().getSelectedItem()) {
-        case KUBEVIRT:
-            passwordLabel = constants.kubevirtToken();
-            break;
-        default:
-            passwordLabel = constants.passwordProvider();
-            break;
-        }
-        passwordEditor.setLabel(passwordLabel);
-        */
-    }
-
-    @Override
     public int setTabIndexes(int nextTabIndex) {
         nameEditor.setTabIndex(nextTabIndex++);
         descriptionEditor.setTabIndex(nextTabIndex++);
-        testButton.setTabIndex(nextTabIndex++);
         return nextTabIndex;
     }
 }

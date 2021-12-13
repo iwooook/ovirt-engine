@@ -13,10 +13,7 @@ public class WhitelistPopupPresenterWidget extends AbstractModelBoundPopupPresen
     private static final String IS_AVAILABLE = "IsAvailable"; //$NON-NLS-1$
 
     public interface ViewDef extends AbstractModelBoundPopupPresenterWidget.ViewDef<WhitelistModel> {
-        HasUiCommandClickHandlers getTestButton();
-        void setTestResult(String errorMessage);
-        void setCurrentActiveProviderWidget();
-        void updatePasswordTitle();
+    
     }
 
     @Inject

@@ -21,7 +21,14 @@ public class WhitelistModel extends Model {
     // FIXME test for PopupView
     private EntityModel<String> name = new EntityModel<>();
     private EntityModel<String> description = new EntityModel<>();
-    private UICommand testCommand;
+    
+    public EntityModel<String> getName() {
+        return name;
+    } 
+
+    public EntityModel<String> getDescription() {
+        return description;
+    }
 
     public Whitelist getWhitelist() {
         return whitelist;

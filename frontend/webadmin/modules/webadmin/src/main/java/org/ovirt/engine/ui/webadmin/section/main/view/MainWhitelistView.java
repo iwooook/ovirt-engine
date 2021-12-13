@@ -83,16 +83,6 @@ public class MainWhitelistView extends AbstractMainWithDetailsTableView<Whitelis
                 };
         userNameColumn.makeSortable(WhitelistConditionFieldAutoCompleter.USER_NAME);
         getTable().addColumn(userNameColumn, constants.userNameUser(), "200px"); //$NON-NLS-1$
-
-        AbstractTextColumn<Whitelist> userIdColumn =
-                new AbstractTextColumn<Whitelist>() {
-                    @Override
-                    public String getValue(Whitelist whitelist) {
-                        return whitelist.getUserId().toString();
-                    }
-                };
-        userIdColumn.makeSortable(WhitelistConditionFieldAutoCompleter.USER_ID);
-        getTable().addColumn(userIdColumn, constants.userId(), "200px"); //$NON-NLS-1$
         
         final DateTimeFormat dateFormat = DateTimeFormat.getFormat(DateTimeFormat.PredefinedFormat.DATE_TIME_MEDIUM);
 

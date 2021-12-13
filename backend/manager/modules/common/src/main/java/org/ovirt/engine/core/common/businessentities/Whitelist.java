@@ -13,7 +13,6 @@ public class Whitelist implements Queryable {
     @Size(min = 0, max = BusinessEntitiesDefinitions.QUOTA_DESCRIPTION_SIZE)
     @NotNull
     private String description;
-    private Guid userId;
     private String userName = "FIXME, userName";
     private String ipAddress = "FIXME, ipAddress";
     private Date registrationTime;
@@ -50,10 +49,6 @@ public class Whitelist implements Queryable {
 
     public String getIpAddress() {
         return ipAddress;
-    }
-
-    public Guid getUserId() {
-        return userId;
     }
 
     public Date getRegistrationTime() {
