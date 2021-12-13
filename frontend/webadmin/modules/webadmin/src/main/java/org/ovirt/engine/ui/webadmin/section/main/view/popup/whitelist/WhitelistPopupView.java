@@ -70,135 +70,8 @@ public class WhitelistPopupView extends AbstractModelBoundPopupView<WhitelistMod
     @WithElementId
     StringEntityModelTextBoxEditor descriptionEditor;
 
-    @UiField(provided = true)
-    @Path(value = "type.selectedItem")
-    @WithElementId
-    ListModelListBoxEditor<ProviderType> typeEditor;
-
-    @UiField(provided = true)
-    @Path(value = "autoSync.entity")
-    @WithElementId
-    EntityModelCheckBoxEditor autoSyncEditor;
-
-    @UiField(provided = true)
-    @Path(value = "isUnmanaged.entity")
-    @WithElementId
-    EntityModelCheckBoxEditor isUnmanagedEditor;
-
-    @UiField(provided = true)
-    @Path(value = "dataCenter.selectedItem")
-    @WithElementId
-    ListModelListBoxEditor<StoragePool> datacenterEditor;
-
-    @UiField
-    @Path(value = "url.entity")
-    @WithElementId
-    StringEntityModelTextBoxEditor urlEditor;
-
     @UiField
     UiCommandButton testButton;
-
-    @UiField
-    @Ignore
-    AlertPanel testResultMessage;
-
-    @UiField(provided = true)
-    @Path(value = "requiresAuthentication.entity")
-    @WithElementId
-    EntityModelCheckBoxEditor requiresAuthenticationEditor;
-
-    @UiField(provided = true)
-    @Path(value = "authApiVersion.selectedItem")
-    @WithElementId
-    ListModelListBoxEditor<OpenStackApiVersionType> authApiVersionEditor;
-
-    @UiField
-    @Path(value = "username.entity")
-    @WithElementId
-    StringEntityModelTextBoxEditor usernameEditor;
-
-    @UiField
-    @Path(value = "password.entity")
-    @WithElementId
-    StringEntityModelPasswordBoxEditor passwordEditor;
-
-    @UiField(provided = true)
-    @Path(value = "authProtocol.selectedItem")
-    @WithElementId
-    ListModelListBoxEditor<OpenStackProtocolType> authProtocolEditor;
-
-    @UiField
-    @Path(value = "authHostname.entity")
-    @WithElementId
-    StringEntityModelTextBoxEditor authHostnameEditor;
-
-    @UiField(provided = true)
-    @Path(value = "authPort.entity")
-    @WithElementId
-    StringEntityModelTextBoxEditor authPortEditor;
-
-    @UiField
-    @Path(value = "userDomainName.entity")
-    @WithElementId
-    StringEntityModelTextBoxEditor userDomainNameEditor;
-
-    @UiField
-    @Path(value = "projectName.entity")
-    @WithElementId
-    StringEntityModelTextBoxEditor projectNameEditor;
-
-    @UiField
-    @Path(value = "projectDomainName.entity")
-    @WithElementId
-    StringEntityModelTextBoxEditor projectDomainNameEditor;
-
-    @UiField
-    @Path(value = "tenantName.entity")
-    @WithElementId
-    StringEntityModelTextBoxEditor tenantNameEditor;
-
-    @UiField
-    @Path(value = "pluginType.selectedItem")
-    @WithElementId
-    ListModelSuggestBoxEditor pluginTypeEditor;
-
-    @UiField
-    @WithElementId
-    FlowPanel networkingPanel;
-
-    @UiField
-    @WithElementId
-    DialogTab generalTab;
-
-    @UiField
-    Row typeEditorRow;
-
-    @UiField
-    Row datacenterEditorRow;
-
-    @UiField
-    @Ignore
-    VmwarePropertiesWidget vmwarePropertiesWidget;
-
-    @UiField
-    @Ignore
-    KVMPropertiesWidget kvmPropertiesWidget;
-
-    @UiField
-    @Ignore
-    XENPropertiesWidget xenPropertiesWidget;
-
-    @UiField
-    @Ignore
-    KubevirtPropertiesWidget kubevirtPropertiesWidget;
-
-    @UiField(provided = true)
-    @Path(value = "readOnly.entity")
-    @WithElementId
-    EntityModelCheckBoxEditor readOnlyEditor;
-
-    @UiField
-    Style style;
 
     private WhitelistModel whitelistModel;
 
@@ -206,22 +79,6 @@ public class WhitelistPopupView extends AbstractModelBoundPopupView<WhitelistMod
     @Inject
     public WhitelistPopupView(EventBus eventBus) {
         super(eventBus);
-
-        authPortEditor = StringEntityModelTextBoxEditor.newTrimmingEditor();
-        typeEditor = new ListModelListBoxEditor<>(new EnumRenderer());
-        authApiVersionEditor = new ListModelListBoxEditor<>(new NameRenderer());
-        autoSyncEditor = new EntityModelCheckBoxEditor(Align.RIGHT);
-        isUnmanagedEditor = new EntityModelCheckBoxEditor(Align.RIGHT);
-        datacenterEditor = new ListModelListBoxEditor<>(new AbstractRenderer<StoragePool>() {
-            @Override
-            public String render(StoragePool storagePool) {
-                return storagePool != null ? storagePool.getName() :
-                    ConstantsManager.getInstance().getConstants().anyDataCenter();
-            }
-        });
-        requiresAuthenticationEditor = new EntityModelCheckBoxEditor(Align.RIGHT);
-        authProtocolEditor = new ListModelListBoxEditor<>(new NameRenderer());
-        readOnlyEditor = new EntityModelCheckBoxEditor(Align.RIGHT);
 
         initWidget(ViewUiBinder.uiBinder.createAndBindUi(this));
         ViewIdHandler.idHandler.generateAndSetIds(this);
@@ -248,10 +105,6 @@ public class WhitelistPopupView extends AbstractModelBoundPopupView<WhitelistMod
 
     @Override
     public WhitelistModel flush() {
-        vmwarePropertiesWidget.flush();
-        kvmPropertiesWidget.flush();
-        xenPropertiesWidget.flush();
-        kubevirtPropertiesWidget.flush();
         return driver.flush();
     }
 
@@ -277,16 +130,7 @@ public class WhitelistPopupView extends AbstractModelBoundPopupView<WhitelistMod
 
     @Override
     public void setTestResult(String errorMessage) {
-        testResultMessage.clearMessages();
-        testResultMessage.setVisible(true);
-        if (errorMessage == null || errorMessage.isEmpty()) {
-            testResultMessage.setType(AlertPanel.Type.SUCCESS);
-            testResultMessage.addMessage(SafeHtmlUtils.fromSafeConstant(constants.testSuccessMessage()));
-        } else {
-            testResultMessage.setType(AlertPanel.Type.DANGER);
-            testResultMessage.addMessage(SafeHtmlUtils.fromString(errorMessage));
 
-        }
     }
 
     @Override
@@ -332,28 +176,6 @@ public class WhitelistPopupView extends AbstractModelBoundPopupView<WhitelistMod
     public int setTabIndexes(int nextTabIndex) {
         nameEditor.setTabIndex(nextTabIndex++);
         descriptionEditor.setTabIndex(nextTabIndex++);
-        typeEditor.setTabIndex(nextTabIndex++);
-        datacenterEditor.setTabIndex(nextTabIndex++);
-        pluginTypeEditor.setTabIndex(nextTabIndex++);
-        autoSyncEditor.setTabIndex(nextTabIndex++);
-        isUnmanagedEditor.setTabIndex(nextTabIndex++);
-        urlEditor.setTabIndex(nextTabIndex++);
-        readOnlyEditor.setTabIndex(nextTabIndex++);
-        nextTabIndex = vmwarePropertiesWidget.setTabIndexes(nextTabIndex);
-        kvmPropertiesWidget.setTabIndexes(nextTabIndex++);
-        xenPropertiesWidget.setTabIndexes(nextTabIndex++);
-        requiresAuthenticationEditor.setTabIndex(nextTabIndex++);
-        usernameEditor.setTabIndex(nextTabIndex++);
-        passwordEditor.setTabIndex(nextTabIndex++);
-        authProtocolEditor.setTabIndexes(nextTabIndex++);
-        authHostnameEditor.setTabIndexes(nextTabIndex++);
-        authPortEditor.setTabIndexes(nextTabIndex++);
-        authApiVersionEditor.setTabIndexes(nextTabIndex++);
-        userDomainNameEditor.setTabIndexes(nextTabIndex++);
-        projectNameEditor.setTabIndexes(nextTabIndex++);
-        projectDomainNameEditor.setTabIndexes(nextTabIndex++);
-        tenantNameEditor.setTabIndex(nextTabIndex++);
-        nextTabIndex = kubevirtPropertiesWidget.setTabIndexes(nextTabIndex++);
         testButton.setTabIndex(nextTabIndex++);
         return nextTabIndex;
     }

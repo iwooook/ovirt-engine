@@ -10,11 +10,18 @@ import org.ovirt.engine.ui.uicommonweb.models.Model;
 import org.ovirt.engine.ui.frontend.Frontend;
 import org.ovirt.engine.ui.uicommonweb.UICommand;
 
+import org.ovirt.engine.ui.uicommonweb.models.EntityModel;
+
 public class WhitelistModel extends Model {
 
     protected final SearchableListModel sourceListModel;
     private final ActionType action;
     private final Whitelist whitelist;
+
+    // FIXME test for PopupView
+    private EntityModel<String> name = new EntityModel<>();
+    private EntityModel<String> description = new EntityModel<>();
+    private UICommand testCommand;
 
     public Whitelist getWhitelist() {
         return whitelist;
