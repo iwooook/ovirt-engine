@@ -13,14 +13,14 @@ public interface WhitelistDao extends Dao {
      *            the id
      * @return the whitelist, or {@code null} if the id was invalid
      */
-    Whitelist get(Guid id);
+    //Whitelist get(Guid id);
 
     /**
      * Retrieves all whitelists.
      *
      * @return the collection of all whitelists
      */
-    List<Whitelist> getAll();
+    //List<Whitelist> getAll();
 
     /**
      * Saves the whitelist.

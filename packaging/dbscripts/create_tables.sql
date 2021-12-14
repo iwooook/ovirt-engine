@@ -7189,6 +7189,19 @@ ALTER TABLE ONLY vnic_profiles
 
 
 --
+-- Name: whitelists; Type: TABLE; Schema: public; Owner: engine
+--
+
+CREATE TABLE whitelists (
+    whitelist_id uuid NOT NULL,
+    description text,
+    user_name text,
+    ip_address text,
+    registration_time timestamp with time zone
+);
+
+
+--
 -- PostgreSQL database dump complete
 --
 

@@ -29,6 +29,8 @@ public class WhitelistDaoImpl extends BaseDao implements WhitelistDao {
         return entity;
     };
 
+    // FIXME: need to create whitelists_view, create_views.sql 
+    /*
     @Override
     public Whitelist get(Guid id) {
         MapSqlParameterSource parameterSource = getCustomMapSqlParameterSource()
@@ -42,6 +44,7 @@ public class WhitelistDaoImpl extends BaseDao implements WhitelistDao {
         MapSqlParameterSource parameterSource = getCustomMapSqlParameterSource();
         return getCallsHandler().executeReadList("GetAllFromWhitelists", whitelistRowMapper, parameterSource);
     }
+    */
 
     private MapSqlParameterSource createIdParameterMapper(Guid id) {
         return getCustomMapSqlParameterSource().addValue("whitelist_id", id);
@@ -49,15 +52,16 @@ public class WhitelistDaoImpl extends BaseDao implements WhitelistDao {
 
     @Override
     public void save(Whitelist whitelist) {
-        log.info("WhitelistDaoImpl, save()");
-        /*
+        log.info("WhitelistDaoImpl save() start");
+        
         getCallsHandler().executeModification("InsertWhitelist",
                 createIdParameterMapper(whitelist.getId())
                         .addValue("description", whitelist.getDescription())
                         .addValue("user_name", whitelist.getUserName())
                         .addValue("ip_address", whitelist.getIpAddress())
                         .addValue("registration_time", whitelist.getRegistrationTime()));
-        */
+        
+        log.info("WhitelistDaoImpl save() end");
     }
 
     @Override
