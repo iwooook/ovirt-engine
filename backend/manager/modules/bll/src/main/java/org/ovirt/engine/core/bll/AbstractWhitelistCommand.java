@@ -27,9 +27,9 @@ public abstract class AbstractWhitelistCommand<T extends WhitelistParameters> ex
     @Override
     public List<PermissionSubject> getPermissionCheckSubjects() {
         List<PermissionSubject> permissionList = new ArrayList<>();
-        //permissionList.add(new PermissionSubject(getParameters().getId(),
-        //        VdcObjectType.Whitelist,
-        //        getActionType().getActionGroup()));
+        permissionList.add(new PermissionSubject(getParameters().getId(),
+            VdcObjectType.Whitelist,
+            getActionType().getActionGroup()));
         return permissionList;
     }
 }
