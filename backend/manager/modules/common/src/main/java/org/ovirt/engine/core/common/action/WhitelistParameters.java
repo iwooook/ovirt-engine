@@ -4,6 +4,7 @@ import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
 import org.ovirt.engine.core.common.businessentities.Whitelist;
+import org.ovirt.engine.core.compat.Guid;
 
 public class WhitelistParameters extends ActionParametersBase {
 
@@ -11,11 +12,13 @@ public class WhitelistParameters extends ActionParametersBase {
 
     @Valid
     @NotNull
+    Guid id;
     private Whitelist whitelist;
 
     // FIXME
     public WhitelistParameters() {
         whitelist = new Whitelist();
+        id = Guid.Empty;
     }
 
     public Whitelist getWhitelist() {
@@ -24,5 +27,13 @@ public class WhitelistParameters extends ActionParametersBase {
 
     public void setWhitelist(Whitelist whitelist) {
         this.whitelist = whitelist;
+    }
+
+    public Guid getId() {
+        return id;
+    }
+
+    public void setId(Guid id) {
+        this.id = id;
     }
 }

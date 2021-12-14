@@ -436,9 +436,6 @@ public enum ActionType {
     // External events
     AddExternalEvent(1500, ActionGroup.INJECT_EXTERNAL_EVENTS, QuotaDependency.NONE),
 
-    // Whitelist
-    AddWhitelist(1550, false, QuotaDependency.NONE),
-
     // Providers
     AddProvider(1600, false, QuotaDependency.NONE),
     UpdateProvider(1601, false, QuotaDependency.NONE),
@@ -624,7 +621,12 @@ public enum ActionType {
     AddDeprecatedApiEvent(8000, false, QuotaDependency.NONE),
 
     // KubeVirt
-    AddVmToKubevirt(9000, ActionGroup.CREATE_VM, QuotaDependency.NONE);
+    AddVmToKubevirt(9000, ActionGroup.CREATE_VM, QuotaDependency.NONE),
+    
+    // Whitelist
+    AddWhitelist(9100, ActionGroup.ADD_WHITELIST, QuotaDependency.NONE),
+    EditWhitelist(9101, ActionGroup.EDIT_WHITELIST, QuotaDependency.NONE),
+    RemoveWhitelist(9102, ActionGroup.REMOVE_WHITELIST, QuotaDependency.NONE);
 
     private int intValue;
     private ActionGroup actionGroup;

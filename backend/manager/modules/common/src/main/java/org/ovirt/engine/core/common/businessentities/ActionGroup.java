@@ -161,7 +161,13 @@ public enum ActionGroup {
     DELETE_CPU_PROFILE(1665, RoleType.ADMIN, true, ApplicationMode.VirtOnly),
     UPDATE_CPU_PROFILE(1666, RoleType.ADMIN, true, ApplicationMode.VirtOnly),
     CREATE_CPU_PROFILE(1667, RoleType.ADMIN, true, ApplicationMode.VirtOnly),
-    ASSIGN_CPU_PROFILE(1668, RoleType.ADMIN, true, ApplicationMode.VirtOnly);
+    ASSIGN_CPU_PROFILE(1668, RoleType.ADMIN, true, ApplicationMode.VirtOnly),
+    
+    // Whitelist actions group
+    ADD_WHITELIST(1700, RoleType.USER, true, ApplicationMode.AllModes),
+    EDIT_WHITELIST(1701, RoleType.USER, true, ApplicationMode.AllModes),
+    REMOVE_WHITELIST(1702, RoleType.USER, true, ApplicationMode.AllModes);
+
 
     private int id;
     private RoleType roleType;

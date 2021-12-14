@@ -29,10 +29,4 @@ public class AddWhitelistCommand extends AbstractWhitelistCommand<WhitelistParam
         log.info("AddWhitelistCommand, executeCommand()");
         setSucceeded(true);
     }
-
-    @Override
-    public List<PermissionSubject> getPermissionCheckSubjects() {
-        // TODO Auto-generated method stub
-        return null;
-    }
 }
