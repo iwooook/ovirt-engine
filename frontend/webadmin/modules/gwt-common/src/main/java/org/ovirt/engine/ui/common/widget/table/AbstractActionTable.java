@@ -52,6 +52,10 @@ import com.google.gwt.view.client.HasData;
 import com.google.gwt.view.client.SelectionChangeEvent;
 import com.google.gwt.view.client.SelectionModel;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+
 /**
  * Base class used to implement action table widgets.
  * <p>
@@ -64,7 +68,9 @@ import com.google.gwt.view.client.SelectionModel;
  *            Table row data type.
  */
 public abstract class AbstractActionTable<E, T> extends AbstractActionPanel<T> implements ActionTable<T>, HasColumns<T> {
-    
+
+    private static final Logger logger = Logger.getLogger("AbstractActionTable");
+
     private static final String ARIA_EXPANDED = "aria-expanded"; //$NON-NLS-1$
     private static final String OPEN = "open";  //$NON-NLS-1$
 
@@ -157,10 +163,16 @@ public abstract class AbstractActionTable<E, T> extends AbstractActionPanel<T> i
 
             @Override
             protected void onLoadingStateChanged(LoadingState state) {
+                logger.log(Level.WARNING, "111"); 
+
                 super.onLoadingStateChanged(state);
+                logger.log(Level.WARNING, "222"); 
+
                 if (state == LoadingState.LOADING) {
+                    logger.log(Level.WARNING, "333aaa"); 
                     Scheduler.get().scheduleDeferred(() -> doAutoSelect = true);
                 } else if (state == LoadingState.LOADED) {
+                    logger.log(Level.WARNING, "333bbb"); 
                     Scheduler.get().scheduleDeferred(() -> {
                         if (rowVisitor != null) {
                             int count = getVisibleItemCount();
