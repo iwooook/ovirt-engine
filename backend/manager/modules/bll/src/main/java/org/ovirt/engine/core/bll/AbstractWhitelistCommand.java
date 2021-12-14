@@ -27,6 +27,7 @@ public abstract class AbstractWhitelistCommand<T extends WhitelistParameters> ex
     @Override
     public List<PermissionSubject> getPermissionCheckSubjects() {
         List<PermissionSubject> permissionList = new ArrayList<>();
+        // FIXME: need to implement WhitelistOperator role
         permissionList.add(new PermissionSubject(getParameters().getId(),
             VdcObjectType.Whitelist,
             getActionType().getActionGroup()));
