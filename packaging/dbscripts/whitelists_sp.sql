@@ -42,7 +42,7 @@ BEGIN
     SET whitelist_id = v_whitelist_id,
         description = v_description,
         user_name = v_user_name,
-        ip_address = v_ip_address
+        ip_address = v_ip_address,
         registration_time = v_registration_time
     WHERE whitelist_id = v_whitelist_id;
 END;$PROCEDURE$
