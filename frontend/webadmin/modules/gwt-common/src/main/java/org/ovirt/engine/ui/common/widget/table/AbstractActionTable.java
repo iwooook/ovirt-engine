@@ -64,7 +64,7 @@ import com.google.gwt.view.client.SelectionModel;
  *            Table row data type.
  */
 public abstract class AbstractActionTable<E, T> extends AbstractActionPanel<T> implements ActionTable<T>, HasColumns<T> {
-
+    
     private static final String ARIA_EXPANDED = "aria-expanded"; //$NON-NLS-1$
     private static final String OPEN = "open";  //$NON-NLS-1$
 
