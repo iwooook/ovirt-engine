@@ -1,27 +1,9 @@
 package org.ovirt.engine.core.dao;
 
-import java.util.List;
-
 import org.ovirt.engine.core.common.businessentities.Whitelist;
 import org.ovirt.engine.core.compat.Guid;
 
 public interface WhitelistDao extends GenericDao<Whitelist, Guid>, SearchDao<Whitelist>{
-    /**
-     * Retrieves the whitelist with the specified id.
-     *
-     * @param id
-     *            the id
-     * @return the whitelist, or {@code null} if the id was invalid
-     */
-    //Whitelist get(Guid id);
-
-    /**
-     * Retrieves all whitelists.
-     *
-     * @return the collection of all whitelists
-     */
-    //List<Whitelist> getAll();
-
     /**
      * Saves the whitelist.
      *

@@ -63,7 +63,6 @@ public class WhitelistDaoImpl extends DefaultGenericDao<Whitelist, Guid> impleme
 
     @Override
     public List<Whitelist> getAllWithQuery(String query) {
-        log.info("WhitelistDaoImpl getAllWithQuery() start");
         return getJdbcTemplate().query(query, createEntityRowMapper());
     }
 
@@ -94,7 +93,6 @@ public class WhitelistDaoImpl extends DefaultGenericDao<Whitelist, Guid> impleme
     @Override
     public void remove(Guid id) {
         MapSqlParameterSource parameterSource = createIdParameterMapper(id);
-
         getCallsHandler().executeModification("DeleteWhitelist", parameterSource);
     }
 }

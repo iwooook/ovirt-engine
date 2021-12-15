@@ -88,7 +88,12 @@ import org.ovirt.engine.core.searchbackend.SyntaxError;
 import org.ovirt.engine.core.utils.lock.EngineLock;
 import org.ovirt.engine.core.utils.lock.LockManager;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 public class SearchQuery<P extends SearchParameters> extends QueriesCommandBase<P> {
+    private static final Logger log = LoggerFactory.getLogger(SearchQuery.class);
+
     private static final Map<String, QueryData> queriesCache = new HashMap<>();
     public static final String LDAP = "LDAP";
 
@@ -474,7 +479,8 @@ public class SearchQuery<P extends SearchParameters> extends QueriesCommandBase<
         return genericSearch(jobDao, false);
     }
 
-    private List<? extends Queryable> searchWhitelists() {
+    private List<Whitelist> searchWhitelists() {
+        log.info("SearchQuery, searchWhitelists() start");
         return genericSearch(whitelistDao, false);
     }
 
