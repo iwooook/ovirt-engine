@@ -162,12 +162,11 @@ public class WhitelistListModel extends ListWithSimpleDetailsModel<Void, Whiteli
     public void executeCommand(UICommand command) {
         super.executeCommand(command);
 
-        if (command == getAddCommand()) {
+        if (command.getName().equals("Add")) {
             add();
-        } 
-        else if (command == getEditCommand()) {
+        } else if (command.getName().equals("Edit")) {
             edit();
-        } else if (command == getRemoveCommand()) {
+        } else if (command.getName().equals("Remove")) {
             remove();
         }
     }

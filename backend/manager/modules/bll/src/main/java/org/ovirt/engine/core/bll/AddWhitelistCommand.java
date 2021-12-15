@@ -28,6 +28,7 @@ public class AddWhitelistCommand extends AbstractWhitelistCommand<WhitelistParam
 
     @Override
     protected void init() {
+        log.info("AddWhitelistCommand, init()");
         getWhitelist().setId(Guid.newGuid());
     }
 
