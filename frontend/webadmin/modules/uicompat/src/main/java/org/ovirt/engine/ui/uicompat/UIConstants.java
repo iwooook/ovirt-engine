@@ -217,6 +217,10 @@ public interface UIConstants extends Constants {
 
     String addWhitelistTitle();
 
+    String editWhitelistTitle();
+
+    String removeWhitelistTitle();
+
     String whitelistTitle();
 
     String networkQoSTitle();
@@ -2128,6 +2132,8 @@ public interface UIConstants extends Constants {
     String forceRemoveProvider();
 
     String forceRemoveCinderProvider();
+
+    String forceRemoveWhitelist();
 
     String both();
 

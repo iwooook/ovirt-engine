@@ -15,10 +15,18 @@ public class WhitelistParameters extends ActionParametersBase {
     Guid id;
     private Whitelist whitelist;
 
-    // FIXME
+    private boolean force;
+
     public WhitelistParameters() {
-        whitelist = new Whitelist();
-        id = Guid.Empty;
+    }
+
+    public WhitelistParameters(Whitelist whitelist) {
+        this(whitelist, false);
+    }
+
+    public WhitelistParameters(Whitelist whitelist, boolean force) {
+        this.whitelist = whitelist;
+        this.force = force;
     }
 
     public Whitelist getWhitelist() {
@@ -35,5 +43,13 @@ public class WhitelistParameters extends ActionParametersBase {
 
     public void setId(Guid id) {
         this.id = id;
+    }
+
+    public boolean isForce() {
+        return force;
+    }
+
+    public void setForce(boolean force) {
+        this.force = force;
     }
 }

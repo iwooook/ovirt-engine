@@ -13,15 +13,22 @@ import org.ovirt.engine.core.common.VdcObjectType;
 import org.ovirt.engine.core.common.action.WhitelistParameters;
 import org.ovirt.engine.core.common.businessentities.Whitelist;
 import org.ovirt.engine.core.common.errors.EngineMessage;
-import org.ovirt.engine.core.dao.VmDeviceDao;
+import org.ovirt.engine.core.dao.WhitelistDao;
 
 /**
  * Abstract base-class for whitelist manipulation commands.
  */
 public abstract class AbstractWhitelistCommand<T extends WhitelistParameters> extends CommandBase<T> {
 
+    @Inject
+    private WhitelistDao whitelistDao;
+
     public AbstractWhitelistCommand(T parameters, CommandContext commandContext) {
         super(parameters, commandContext);
+    }
+
+    protected List<Whitelist> getWhitelists() {
+        return whitelistDao.getAll();
     }
 
     @Override

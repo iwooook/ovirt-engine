@@ -145,7 +145,6 @@ public class WhitelistListModel extends ListWithSimpleDetailsModel<Void, Whiteli
         setWindow(new AddWhitelistModel(this));
     }
 
-    /*
     private void edit() {
         if (getWindow() != null) {
             return;
@@ -157,9 +156,8 @@ public class WhitelistListModel extends ListWithSimpleDetailsModel<Void, Whiteli
         if (getConfirmWindow() != null) {
             return;
         }
-        setConfirmWindow(new RemoveWhitlistsModel(this, false));
+        setConfirmWindow(new RemoveWhitelistsModel(this, false));
     }
-    */
 
     @Override
     public void executeCommand(UICommand command) {
@@ -168,12 +166,10 @@ public class WhitelistListModel extends ListWithSimpleDetailsModel<Void, Whiteli
         if (command == getAddCommand()) {
             add();
         } 
-        /*
         else if (command == getEditCommand()) {
             edit();
         } else if (command == getRemoveCommand()) {
             remove();
         }
-        */
     }
 }

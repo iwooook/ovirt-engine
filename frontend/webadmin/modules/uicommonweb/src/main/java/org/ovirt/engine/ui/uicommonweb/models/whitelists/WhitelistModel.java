@@ -1,5 +1,7 @@
 package org.ovirt.engine.ui.uicommonweb.models.whitelists;
 
+import java.util.Date;
+
 import org.checkerframework.checker.units.qual.s;
 import org.ovirt.engine.core.common.action.ActionReturnValue;
 import org.ovirt.engine.core.common.action.ActionType;
@@ -18,15 +20,25 @@ public class WhitelistModel extends Model {
     private final ActionType action;
     private final Whitelist whitelist;
 
-    private EntityModel<String> ip = new EntityModel<>();
-    private EntityModel<String> description = new EntityModel<>();
+    private EntityModel<String> description = new EntityModel<>("set from WhitelistModel");
+    private EntityModel<String> userName = new EntityModel<>();
+    private EntityModel<String> ipAddress = new EntityModel<>();
+    private EntityModel<Date> registrationTime = new EntityModel<>();
     
-    public EntityModel<String> getIp() {
-        return ip;
-    } 
-
     public EntityModel<String> getDescription() {
         return description;
+    }
+
+    public EntityModel<String> getUserName() {
+        return userName;
+    }
+
+    public EntityModel<String> getIpAddress() {
+        return ipAddress;
+    } 
+
+    public EntityModel<Date> getRegistrationTime() {
+        return registrationTime;
     }
 
     public Whitelist getWhitelist() {
@@ -38,10 +50,21 @@ public class WhitelistModel extends Model {
         this.action = action;
         this.whitelist = whitelist;
 
-        getCommands().add(UICommand.createDefaultOkUiCommand("OnSave", this));
+        getCommands().add(UICommand.createDefaultOkUiCommand("Save", this));
+        getCommands().add(UICommand.createCancelUiCommand("Cancel", this));
     }
 
-    protected void onSave() {
+    // FIXME: EditWhitelistModel, RemoveWhitelistModel
+    private void onSave() {
+        preSave();
+    }
+
+    protected void preSave() {
+        actualSave();
+    }
+
+    protected void actualSave() {
+        flush();
         Frontend.getInstance().runAction(action, new WhitelistParameters(), result -> {
             if (result.getReturnValue() == null || !result.getReturnValue().getSucceeded()) {
                 return;
@@ -51,16 +74,25 @@ public class WhitelistModel extends Model {
         }, this);
     } 
 
+    private void cancel() {
+        sourceListModel.setWindow(null);
+    }
+
+    private void flush() {
+        whitelist.setDescription(description.getEntity());
+        whitelist.setUserName(userName.getEntity());
+        whitelist.setIpAddress(ipAddress.getEntity());
+        whitelist.setRegistrationTime(registrationTime.getEntity());
+    }
+
     @Override
     public void executeCommand(UICommand command) {
         super.executeCommand(command);
 
-        if (command.getName() == "OnSave") {
+        if (command.getName() == "Save") {
             onSave();
-        } 
-    }
-
-    private void cancel() {
-        sourceListModel.setWindow(null);
+        } else if (command.getName() == "Cancel") {
+            cancel();
+        }
     }
 }
