@@ -16,11 +16,6 @@ public class Whitelist implements Queryable, BusinessEntity<Guid> {
     private Date registrationTime;
 
     public Whitelist() {
-        id = Guid.Empty;
-        description = "description";
-        userName = "userName";
-        ipAddress = "ipAddress";
-        registrationTime = new Date();
     }
 
     public Guid getId() {

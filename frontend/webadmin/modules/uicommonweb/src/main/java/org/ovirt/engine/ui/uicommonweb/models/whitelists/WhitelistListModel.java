@@ -40,7 +40,7 @@ import com.google.inject.Inject;
 
 public class WhitelistListModel extends ListWithSimpleDetailsModel<Void, Whitelist> {
 
-    private static final Logger logger = Logger.getLogger("WhitelistListModel: ");
+    private static final Logger log = Logger.getLogger("WhitelistListModel: ");
 
     private UICommand addCommand;
     private UICommand editCommand;
@@ -48,13 +48,12 @@ public class WhitelistListModel extends ListWithSimpleDetailsModel<Void, Whiteli
 
     @Inject
     public WhitelistListModel() {
-        logger.log(Level.WARNING, "WhitelistListModel constructor"); 
-
         setTitle(ConstantsManager.getInstance().getConstants().whitelistTitle());
         //setHelpTag(HelpTag.engine_sessions);
         setApplicationPlace(WebAdminApplicationPlaces.whitelistMainPlace);
         //setHashName("whitelists"); //$NON-NLS-1$
 
+        // FIXME: SearchString, SearchObject
         setDefaultSearchString(SearchStringMapping.WHITELIST_DEFAULT_SEARCH + ":"); //$NON-NLS-1$
         setSearchString(getDefaultSearchString());
         setSearchObjects(new String[] { SearchObjects.WHITELIST_OBJ_NAME, SearchObjects.WHITELIST_PLU_OBJ_NAME });
@@ -130,6 +129,7 @@ public class WhitelistListModel extends ListWithSimpleDetailsModel<Void, Whiteli
 
     @Override
     protected void syncSearch() {
+        log.info("WhitelistListModel, syncSearch() called");
         SearchParameters tempVar =
                 new SearchParameters(applySortOptions(getSearchString()), SearchType.Whitelist, isCaseSensitiveSearch());
         tempVar.setMaxCount(getSearchPageSize());
@@ -137,8 +137,7 @@ public class WhitelistListModel extends ListWithSimpleDetailsModel<Void, Whiteli
     }
 
     private void add() {
-        logger.log(Level.WARNING, "add() called"); 
-
+        log.info("WhitelistListModel, add() called");
         if (getWindow() != null) {
             return;
         }
