@@ -27,9 +27,11 @@ public class RemoveWhitelistCommand extends AbstractWhitelistCommand<WhitelistPa
     @Override
     protected void executeCommand() {
         log.info("RemoveWhitelistCommand, executeCommand() called");
+        /*
         for (Whitelist whitelist : getWhitelists()) {
             whitelistDao.remove(whitelist.getId());
         }
+        */
         setSucceeded(true);
     }
 

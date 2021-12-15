@@ -15,7 +15,6 @@ import org.ovirt.engine.core.dao.WhitelistDao;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-//public class AddWhitelistCommand extends AbstractVmWatchdogCommand<WatchdogParameters> {
 public class AddWhitelistCommand extends AbstractWhitelistCommand<WhitelistParameters> {
 
     @Inject

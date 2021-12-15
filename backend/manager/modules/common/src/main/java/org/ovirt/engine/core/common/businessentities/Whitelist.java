@@ -10,8 +10,6 @@ import org.ovirt.engine.core.compat.Guid;
 public class Whitelist implements Queryable, BusinessEntity<Guid> {
 
     private Guid id;
-    @Size(min = 0, max = BusinessEntitiesDefinitions.QUOTA_DESCRIPTION_SIZE)
-    @NotNull
     private String description;
     private String userName;
     private String ipAddress;

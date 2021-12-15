@@ -20,7 +20,7 @@ public class WhitelistModel extends Model {
     private final ActionType action;
     private final Whitelist whitelist;
 
-    private EntityModel<String> description = new EntityModel<>("set from WhitelistModel");
+    private EntityModel<String> description = new EntityModel<>();
     private EntityModel<String> userName = new EntityModel<>();
     private EntityModel<String> ipAddress = new EntityModel<>();
     private EntityModel<Date> registrationTime = new EntityModel<>();
