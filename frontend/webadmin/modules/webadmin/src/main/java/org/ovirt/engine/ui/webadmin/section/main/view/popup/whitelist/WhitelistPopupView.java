@@ -61,7 +61,7 @@ public class WhitelistPopupView extends AbstractModelBoundPopupView<WhitelistMod
     private static final ApplicationConstants constants = AssetProvider.getConstants();
 
     @UiField
-    @Path(value = "ip.entity")
+    @Path(value = "ipAddress.entity")
     @WithElementId
     StringEntityModelTextBoxEditor ipEditor;
 
