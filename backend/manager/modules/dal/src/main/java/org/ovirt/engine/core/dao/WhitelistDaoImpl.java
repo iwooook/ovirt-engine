@@ -15,9 +15,9 @@ import org.slf4j.LoggerFactory;
 
 @Named
 @Singleton
-public class WhitelistDaoImpl extends BaseDao implements WhitelistDao {
+public class WhitelistDaoImpl extends DefaultGenericDao<Whitelist, Guid> implements WhitelistDao {
 
-    private static final Logger log = LoggerFactory.getLogger(WhitelistDaoImpl.class);
+	private static final Logger log = LoggerFactory.getLogger(WhitelistDaoImpl.class);
 
     private static final RowMapper<Whitelist> whitelistRowMapper = (rs, rowNum) -> {
         Whitelist entity = new Whitelist();
@@ -29,8 +29,30 @@ public class WhitelistDaoImpl extends BaseDao implements WhitelistDao {
         return entity;
     };
 
-    // FIXME: need to create whitelists_view, create_views.sql 
-    /*
+    public WhitelistDaoImpl() {
+		super("Whitelist");
+        setProcedureNameForGetAll("GetAllWhitelists");
+	}
+
+    @Override
+    protected MapSqlParameterSource createIdParameterMapper(Guid id) {
+        return getCustomMapSqlParameterSource().addValue("whitelist_id", id);
+    }
+
+    @Override
+    protected MapSqlParameterSource createFullParametersMapper(Whitelist entity) {
+        return createIdParameterMapper(entity.getId())
+            .addValue("description", entity.getDescription())
+            .addValue("user_name", entity.getUserName())
+            .addValue("ip_address", entity.getIpAddress())
+            .addValue("registration_time", entity.getRegistrationTime());
+    }
+
+    
+    protected RowMapper<Whitelist> createEntityRowMapper() {
+        return whitelistRowMapper;
+    }
+
     @Override
     public Whitelist get(Guid id) {
         MapSqlParameterSource parameterSource = getCustomMapSqlParameterSource()
@@ -40,14 +62,9 @@ public class WhitelistDaoImpl extends BaseDao implements WhitelistDao {
     }
 
     @Override
-    public List<Whitelist> getAll() {
-        MapSqlParameterSource parameterSource = getCustomMapSqlParameterSource();
-        return getCallsHandler().executeReadList("GetAllFromWhitelists", whitelistRowMapper, parameterSource);
-    }
-    */
-
-    private MapSqlParameterSource createIdParameterMapper(Guid id) {
-        return getCustomMapSqlParameterSource().addValue("whitelist_id", id);
+    public List<Whitelist> getAllWithQuery(String query) {
+        log.info("WhitelistDaoImpl getAllWithQuery() start");
+        return getJdbcTemplate().query(query, createEntityRowMapper());
     }
 
     @Override
@@ -80,6 +97,4 @@ public class WhitelistDaoImpl extends BaseDao implements WhitelistDao {
 
         getCallsHandler().executeModification("DeleteWhitelist", parameterSource);
     }
-
-
 }

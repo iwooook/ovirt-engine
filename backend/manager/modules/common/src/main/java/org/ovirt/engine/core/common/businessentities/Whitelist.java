@@ -7,7 +7,7 @@ import javax.validation.constraints.Size;
 
 import org.ovirt.engine.core.compat.Guid;
 
-public class Whitelist implements Queryable {
+public class Whitelist implements Queryable, BusinessEntity<Guid> {
 
     private Guid id;
     @Size(min = 0, max = BusinessEntitiesDefinitions.QUOTA_DESCRIPTION_SIZE)

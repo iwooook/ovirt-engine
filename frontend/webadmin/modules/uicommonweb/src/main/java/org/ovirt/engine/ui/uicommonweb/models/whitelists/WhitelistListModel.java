@@ -119,7 +119,6 @@ public class WhitelistListModel extends ListWithSimpleDetailsModel<Void, Whiteli
         getEditCommand().setIsExecutionAllowed(selectedItems.size() == 1);
         getRemoveCommand().setIsExecutionAllowed(selectedItems.size() > 0);
 
-
         getAddCommand().setIsAvailable(true);
         getRemoveCommand().setIsAvailable(true);
     }
@@ -129,7 +128,6 @@ public class WhitelistListModel extends ListWithSimpleDetailsModel<Void, Whiteli
         return searchString.trim().toLowerCase().startsWith("whitelist"); //$NON-NLS-1$
     }
 
-    /*
     @Override
     protected void syncSearch() {
         SearchParameters tempVar =
@@ -137,7 +135,6 @@ public class WhitelistListModel extends ListWithSimpleDetailsModel<Void, Whiteli
         tempVar.setMaxCount(getSearchPageSize());
         super.syncSearch(QueryType.Search, tempVar);
     }
-    */
 
     private void add() {
         logger.log(Level.WARNING, "add() called"); 

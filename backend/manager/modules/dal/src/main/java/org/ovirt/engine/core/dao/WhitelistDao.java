@@ -5,7 +5,7 @@ import java.util.List;
 import org.ovirt.engine.core.common.businessentities.Whitelist;
 import org.ovirt.engine.core.compat.Guid;
 
-public interface WhitelistDao extends Dao {
+public interface WhitelistDao extends GenericDao<Whitelist, Guid>, SearchDao<Whitelist>{
     /**
      * Retrieves the whitelist with the specified id.
      *

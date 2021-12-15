@@ -54,8 +54,7 @@ public class MainWhitelistView extends AbstractMainWithDetailsTableView<Whitelis
     void initTable() {
         getTable().enableColumnResizing();
 
-        AbstractTextColumn<Whitelist> whitelistDbIdColumn =
-                new AbstractTextColumn<Whitelist>() {
+        AbstractTextColumn<Whitelist> whitelistDbIdColumn = new AbstractTextColumn<Whitelist>() {
                     @Override
                     public String getValue(Whitelist whitelist) {
                         return whitelist.getId().toString();
@@ -63,7 +62,7 @@ public class MainWhitelistView extends AbstractMainWithDetailsTableView<Whitelis
                 };
         whitelistDbIdColumn.makeSortable(WhitelistConditionFieldAutoCompleter.WHITELIST_DB_ID);
         getTable().addColumn(whitelistDbIdColumn, constants.whitelistDbId(), "200px"); //$NON-NLS-1$
-
+        
         AbstractTextColumn<Whitelist> ipAddressColumn =
                 new AbstractTextColumn<Whitelist>() {
                     @Override

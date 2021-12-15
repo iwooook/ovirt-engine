@@ -42,6 +42,7 @@ import org.ovirt.engine.core.common.businessentities.VDS;
 import org.ovirt.engine.core.common.businessentities.VM;
 import org.ovirt.engine.core.common.businessentities.VmPool;
 import org.ovirt.engine.core.common.businessentities.VmTemplate;
+import org.ovirt.engine.core.common.businessentities.Whitelist;
 import org.ovirt.engine.core.common.businessentities.aaa.DbGroup;
 import org.ovirt.engine.core.common.businessentities.aaa.DbUser;
 import org.ovirt.engine.core.common.businessentities.gluster.GlusterVolumeEntity;
@@ -75,6 +76,7 @@ import org.ovirt.engine.core.dao.VdsDao;
 import org.ovirt.engine.core.dao.VmDao;
 import org.ovirt.engine.core.dao.VmPoolDao;
 import org.ovirt.engine.core.dao.VmTemplateDao;
+import org.ovirt.engine.core.dao.WhitelistDao;
 import org.ovirt.engine.core.dao.gluster.GlusterVolumeDao;
 import org.ovirt.engine.core.dao.network.NetworkViewDao;
 import org.ovirt.engine.core.dao.provider.ProviderDao;
@@ -155,6 +157,9 @@ public class SearchQuery<P extends SearchParameters> extends QueriesCommandBase<
 
     @Inject
     private JobDao jobDao;
+
+    @Inject
+    private WhitelistDao whitelistDao;
 
     @Inject
     private DirectoryUtils directoryUtils;
@@ -240,6 +245,9 @@ public class SearchQuery<P extends SearchParameters> extends QueriesCommandBase<
             break;
         case Job:
             returnValue = searchJobs();
+            break;
+        case Whitelist:
+            returnValue = searchWhitelists();
             break;
         default:
             log.error("Search object type not handled: {}", getParameters().getSearchTypeValue());
@@ -464,6 +472,10 @@ public class SearchQuery<P extends SearchParameters> extends QueriesCommandBase<
 
     private List<? extends Queryable> searchJobs() {
         return genericSearch(jobDao, false);
+    }
+
+    private List<? extends Queryable> searchWhitelists() {
+        return genericSearch(whitelistDao, false);
     }
 
     private void injectSessionInfo(EngineSession engineSession) {
