@@ -100,6 +100,8 @@ public final class SearchObjects {
                 GLUSTER_VOLUME_PLU_OBJ_NAME,
                 QUOTA_OBJ_NAME,
                 QUOTA_PLU_OBJ_NAME,
+                WHITELIST_OBJ_NAME,
+                WHITELIST_PLU_OBJ_NAME,
                 NETWORK_OBJ_NAME,
                 NETWORK_PLU_OBJ_NAME,
                 PROVIDER_OBJ_NAME,
