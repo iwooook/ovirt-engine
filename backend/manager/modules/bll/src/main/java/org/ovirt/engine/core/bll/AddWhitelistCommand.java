@@ -9,6 +9,7 @@ import org.ovirt.engine.core.common.action.WhitelistParameters;
 import org.ovirt.engine.core.common.businessentities.VmDevice;
 import org.ovirt.engine.core.common.businessentities.Whitelist;
 import org.ovirt.engine.core.common.errors.EngineMessage;
+import org.ovirt.engine.core.compat.Guid;
 import org.ovirt.engine.core.dao.WhitelistDao;
 
 import org.slf4j.Logger;
@@ -27,9 +28,18 @@ public class AddWhitelistCommand extends AbstractWhitelistCommand<WhitelistParam
     }
 
     @Override
+    protected void init() {
+        getWhitelist().setId(Guid.newGuid());
+    }
+
+    private Whitelist getWhitelist() {
+        return getParameters().getWhitelist();
+    }
+
+    @Override
     protected void executeCommand() {
         log.info("AddWhitelistCommand, executeCommand()");
-        whitelistDao.save(new Whitelist());
+        whitelistDao.save(getWhitelist());
         setSucceeded(true);
     }
 }

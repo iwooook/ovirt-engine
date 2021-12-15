@@ -105,6 +105,6 @@ public class MainWhitelistView extends AbstractMainWithDetailsTableView<Whitelis
                     }
                 };
         registrationTimeColumn.makeSortable(Comparator.comparing(Whitelist::getRegistrationTime));
-        getTable().addColumn(registrationTimeColumn, constants.sessionStartTime(), "200px"); //$NON-NLS-1$
+        getTable().addColumn(registrationTimeColumn, constants.whitelistRegistrationTime(), "200px"); //$NON-NLS-1$
     }
 }

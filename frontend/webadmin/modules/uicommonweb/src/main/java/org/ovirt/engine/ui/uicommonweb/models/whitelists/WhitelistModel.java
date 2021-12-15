@@ -65,7 +65,7 @@ public class WhitelistModel extends Model {
 
     protected void actualSave() {
         flush();
-        Frontend.getInstance().runAction(action, new WhitelistParameters(), result -> {
+        Frontend.getInstance().runAction(action, new WhitelistParameters(whitelist), result -> {
             if (result.getReturnValue() == null || !result.getReturnValue().getSucceeded()) {
                 return;
             }
