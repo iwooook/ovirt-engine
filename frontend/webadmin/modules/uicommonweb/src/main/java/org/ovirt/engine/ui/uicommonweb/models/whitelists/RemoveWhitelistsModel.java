@@ -20,7 +20,12 @@ import org.ovirt.engine.ui.uicommonweb.models.ConfirmationModel;
 import org.ovirt.engine.ui.uicommonweb.UICommand;
 import org.ovirt.engine.ui.uicompat.ConstantsManager;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 public class RemoveWhitelistsModel extends ConfirmationModel {
+
+    private static final Logger log = LoggerFactory.getLogger(RemoveWhitelistsModel.class);
 
     private final WhitelistListModel sourceListModel;
     private final List<Whitelist> whitelists;
@@ -59,6 +64,7 @@ public class RemoveWhitelistsModel extends ConfirmationModel {
         List<ActionParametersBase> parameterList = new LinkedList<>();
         for (Whitelist whitelist : whitelists) {
             parameterList.add(new WhitelistParameters(whitelist, force));
+            log.info("RemoveWhitelistsModel, whitelist.description = ''{}''", whitelist.getDescription());
         }
 
         Frontend.getInstance().runMultipleActions(ActionType.RemoveWhitelist, parameterList,

@@ -480,7 +480,6 @@ public class SearchQuery<P extends SearchParameters> extends QueriesCommandBase<
     }
 
     private List<Whitelist> searchWhitelists() {
-        log.info("SearchQuery, searchWhitelists() start");
         return genericSearch(whitelistDao, false);
     }
 
