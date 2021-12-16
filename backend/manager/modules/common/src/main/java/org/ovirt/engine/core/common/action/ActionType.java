@@ -625,7 +625,7 @@ public enum ActionType {
     
     // Whitelist
     AddWhitelist(9100, ActionGroup.ADD_WHITELIST, QuotaDependency.NONE),
-    EditWhitelist(9101, ActionGroup.EDIT_WHITELIST, QuotaDependency.NONE),
+    UpdateWhitelist(9101, ActionGroup.EDIT_WHITELIST, QuotaDependency.NONE),
     RemoveWhitelist(9102, ActionGroup.REMOVE_WHITELIST, QuotaDependency.NONE);
 
     private int intValue;

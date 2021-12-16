@@ -15,7 +15,7 @@ import org.ovirt.engine.ui.uicompat.ConstantsManager;
 public class EditWhitelistModel extends WhitelistModel {
 
     public EditWhitelistModel(WhitelistListModel sourceListModel, Whitelist whitelist) {
-        super(sourceListModel, ActionType.EditWhitelist, whitelist);
+        super(sourceListModel, ActionType.UpdateWhitelist, whitelist);
         setTitle(ConstantsManager.getInstance().getConstants().editWhitelistTitle());
 
         getDescription().setEntity(whitelist.getDescription());

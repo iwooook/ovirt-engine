@@ -64,7 +64,6 @@ public class RemoveWhitelistsModel extends ConfirmationModel {
         List<ActionParametersBase> parameterList = new LinkedList<>();
         for (Whitelist whitelist : whitelists) {
             parameterList.add(new WhitelistParameters(whitelist, force));
-            log.info("RemoveWhitelistsModel, whitelist.description = ''{}''", whitelist.getDescription());
         }
 
         Frontend.getInstance().runMultipleActions(ActionType.RemoveWhitelist, parameterList,
