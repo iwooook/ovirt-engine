@@ -827,6 +827,13 @@ public abstract class CommandBase<T extends ActionParametersBase>
         }
         
         // FIXME
+        log.info("CommandBase(), internalValidateInTransaction called, ");
+        boolean _1 = isUserAuthorizedToRunAction();
+        boolean _2 = validateInputs();
+        boolean _3 = acquireLock();
+        boolean _4 = validate();
+        boolean _5 = internalValidateAndSetQuota();
+        log.info(" isValid = ''{}'' && ''{}'' && ''{}'' && ''{}'' && ''{}''", _1, _2, _3, _4, _5);
         isValid = true;
 
         return isValid;

@@ -63,6 +63,7 @@ public class WhitelistDaoImpl extends DefaultGenericDao<Whitelist, Guid> impleme
 
     @Override
     public List<Whitelist> getAllWithQuery(String query) {
+        log.info("WhitelistDaoImpl, getAllWithQuery() with query: ''{}''", query);
         return getJdbcTemplate().query(query, createEntityRowMapper());
     }
 
