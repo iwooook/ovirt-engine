@@ -38,4 +38,13 @@ public class AddWhitelistCommand extends AbstractWhitelistCommand<WhitelistParam
         whitelistDao.save(getWhitelist());
         setSucceeded(true);
     }
+
+    @Override
+    protected boolean validate() {
+        if (!super.validate()) {
+            return false;
+        }
+        // FIXME: Check if same ip address entry exist?
+        return true;
+    }
 }

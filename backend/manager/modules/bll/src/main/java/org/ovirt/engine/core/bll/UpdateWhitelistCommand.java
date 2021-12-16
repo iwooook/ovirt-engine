@@ -43,10 +43,12 @@ public class UpdateWhitelistCommand extends AbstractWhitelistCommand<WhitelistPa
         if (!super.validate()) {
             return false;
         }
-        // FIXME: Check if same ip address entry exist?
+        // FIXME: Check if same ip address entry exist?, Check if empty?
+        /*
         if (getWhitelists().isEmpty()) {
             return failValidation(EngineMessage.WHITELIST_NOT_FOUND);
         }
+        */
         return true;
     }
 

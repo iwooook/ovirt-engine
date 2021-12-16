@@ -31,6 +31,7 @@ public abstract class AbstractWhitelistCommand<T extends WhitelistParameters> ex
     }
 
     protected List<Whitelist> getWhitelists() {
+        // FIXME, getAll error
         return whitelistDao.getAll();
     }
 

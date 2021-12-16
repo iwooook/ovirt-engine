@@ -71,11 +71,11 @@ LANGUAGE plpgsql;
 -- Retrieves whitelist entity by its whitelist_id from whitelists table
 ----------------------------------------------------
 CREATE OR REPLACE FUNCTION GetWhitelistByWhitelistId (v_whitelist_id UUID)
-RETURNS SETOF whitelist STABLE AS $PROCEDURE$
+RETURNS SETOF whitelists STABLE AS $PROCEDURE$
 BEGIN
     RETURN QUERY
 
-    SELECT whitelist.*
+    SELECT whitelists.*
     FROM whitelists
     WHERE whitelist_id = v_whitelist_id;
 END;$PROCEDURE$
@@ -85,11 +85,11 @@ LANGUAGE plpgsql;
 -- Retrieves all whitelist entitise from whitelists table
 --------------------------------------------
 CREATE OR REPLACE FUNCTION GetAllWhitelists ()
-RETURNS SETOF whitelist STABLE AS $PROCEDURE$
+RETURNS SETOF whitelists STABLE AS $PROCEDURE$
 BEGIN
     RETURN QUERY
 
-    SELECT whitelist.*
+    SELECT whitelists.*
     FROM whitelists
     WHERE status != 'UNKNOWN'
     ORDER BY registration_time DESC;

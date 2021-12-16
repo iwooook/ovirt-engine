@@ -34,9 +34,12 @@ public class RemoveWhitelistCommand extends AbstractWhitelistCommand<WhitelistPa
         if (!super.validate()) {
             return false;
         }
+        // FIXME: Check if empty?
+        /*
         if (getWhitelists().isEmpty()) {
             return failValidation(EngineMessage.WHITELIST_NOT_FOUND);
         }
+        */
         return true;
     }
 }
