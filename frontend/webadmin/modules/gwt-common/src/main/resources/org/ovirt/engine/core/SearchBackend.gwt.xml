@@ -71,6 +71,7 @@
 		<include name="searchbackend/NetworkInterfaceConditionFieldAutoCompleter.java" />
 		<include name="searchbackend/NetworkClusterConditionFieldAutoCompleter.java" />
 		<include name="searchbackend/ProviderConditionFieldAutoCompleter.java" />
+		<include name="searchbackend/WhitelistConditionFieldAutoCompleter.java" />
 		<include name="searchbackend/SessionConditionFieldAutoCompleter.java" />
 		<include name="searchbackend/JobConditionFieldAutoCompleter.java" />
 		<!--======================SEARCHBACKEND/GLUSTER====================== -->
