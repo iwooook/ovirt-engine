@@ -25,7 +25,7 @@ public class WhitelistDaoImpl extends DefaultGenericDao<Whitelist, Guid> impleme
         entity.setDescription(rs.getString("description"));
         entity.setUserName(rs.getString("user_name"));
         entity.setIpAddress(rs.getString("ip_address"));
-        entity.setRegistrationTime(rs.getDate("registration_time"));
+        entity.setRegistrationTime(rs.getTimestamp("registration_time"));
         return entity;
     };
 
