@@ -22,10 +22,10 @@ public class WhitelistDaoImpl extends DefaultGenericDao<Whitelist, Guid> impleme
     private static final RowMapper<Whitelist> whitelistRowMapper = (rs, rowNum) -> {
         Whitelist entity = new Whitelist();
         entity.setId(getGuidDefaultEmpty(rs, "whitelist_id"));
-        entity.setId(getGuidDefaultEmpty(rs, "description"));
-        entity.setId(getGuidDefaultEmpty(rs, "user_name"));
-        entity.setId(getGuidDefaultEmpty(rs, "ip_address"));
-        entity.setId(getGuidDefaultEmpty(rs, "registration_time"));
+        entity.setDescription(rs.getString("description"));
+        entity.setUserName(rs.getString("user_name"));
+        entity.setIpAddress(rs.getString("ip_address"));
+        entity.setRegistrationTime(rs.getDate("registration_time"));
         return entity;
     };
 

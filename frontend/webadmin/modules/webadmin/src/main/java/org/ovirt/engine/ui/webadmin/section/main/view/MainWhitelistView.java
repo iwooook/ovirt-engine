@@ -87,7 +87,7 @@ public class MainWhitelistView extends AbstractMainWithDetailsTableView<Whitelis
         new AbstractTextColumn<Whitelist>() {
             @Override
             public String getValue(Whitelist whitelist) {
-                return whitelist.getUserName();
+                return whitelist.getDescription();
             }
         };
         descriptionColumn.makeSortable(WhitelistConditionFieldAutoCompleter.USER_NAME);
