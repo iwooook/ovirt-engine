@@ -28,6 +28,6 @@ public class DummyService implements BackendService {
     }
 
     private void printLog() {
-        log.info("info log from DummyService");
+        //log.info("info log from DummyService");
     }
 }

@@ -29,6 +29,7 @@ public class AddWhitelistCommand extends AbstractWhitelistCommand<WhitelistParam
     @Override
     protected void init() {
         getWhitelist().setId(Guid.newGuid());
+        getWhitelist().setUserName(getUserName());
         Date time = new Date();
         getWhitelist().setRegistrationTime(time);
     }

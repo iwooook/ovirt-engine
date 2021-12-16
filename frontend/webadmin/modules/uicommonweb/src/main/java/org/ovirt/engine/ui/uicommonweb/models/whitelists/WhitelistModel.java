@@ -11,7 +11,6 @@ import org.ovirt.engine.core.common.businessentities.Whitelist;
 import org.ovirt.engine.ui.uicommonweb.models.Model;
 import org.ovirt.engine.ui.frontend.Frontend;
 import org.ovirt.engine.ui.uicommonweb.UICommand;
-
 import org.ovirt.engine.ui.uicommonweb.models.EntityModel;
 
 public class WhitelistModel extends Model {

@@ -28,6 +28,7 @@ public class UpdateWhitelistCommand extends AbstractWhitelistCommand<WhitelistPa
 
     @Override
     protected void init() {
+        getWhitelist().setUserName(getUserName());
         Date time = new Date();
         getWhitelist().setRegistrationTime(time);
     }
