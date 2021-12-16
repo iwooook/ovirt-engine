@@ -60,7 +60,7 @@ public class MainWhitelistView extends AbstractMainWithDetailsTableView<Whitelis
                         return whitelist.getId().toString();
                     }
                 };
-        whitelistDbIdColumn.makeSortable(WhitelistConditionFieldAutoCompleter.WHITELIST_DB_ID);
+        whitelistDbIdColumn.makeSortable(WhitelistConditionFieldAutoCompleter.WHITELIST_ID);
         getTable().addColumn(whitelistDbIdColumn, constants.whitelistDbId(), "200px"); //$NON-NLS-1$
         
         AbstractTextColumn<Whitelist> ipAddressColumn =
