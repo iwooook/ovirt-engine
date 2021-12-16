@@ -1,5 +1,6 @@
 package org.ovirt.engine.core.bll;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -23,6 +24,12 @@ public class UpdateWhitelistCommand extends AbstractWhitelistCommand<WhitelistPa
 
     public UpdateWhitelistCommand(WhitelistParameters parameters, CommandContext commandContext) {
         super(parameters, commandContext);
+    }
+
+    @Override
+    protected void init() {
+        Date time = new Date();
+        getWhitelist().setRegistrationTime(time);
     }
 
     @Override
