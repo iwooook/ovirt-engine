@@ -6,7 +6,6 @@ import javax.inject.Inject;
 
 import org.ovirt.engine.core.bll.context.CommandContext;
 import org.ovirt.engine.core.common.action.WhitelistParameters;
-import org.ovirt.engine.core.common.businessentities.VmDevice;
 import org.ovirt.engine.core.common.businessentities.Whitelist;
 import org.ovirt.engine.core.common.errors.EngineMessage;
 import org.ovirt.engine.core.dao.WhitelistDao;
@@ -28,8 +27,7 @@ public class UpdateWhitelistCommand extends AbstractWhitelistCommand<WhitelistPa
 
     @Override
     protected void executeCommand() {
-        // FIXME
-        log.info("UpdateWhitelistCommand, executeCommand() called");
+        whitelistDao.update(getWhitelist());
         setSucceeded(true);
     }
 
@@ -38,16 +36,10 @@ public class UpdateWhitelistCommand extends AbstractWhitelistCommand<WhitelistPa
         if (!super.validate()) {
             return false;
         }
-        /*
-        List<VmDevice> watchdogs = getWatchdogs();
-        if (watchdogs.isEmpty()) {
-            return failValidation(EngineMessage.WATCHDOG_NOT_FOUND);
+        // FIXME: Check if same ip address entry exist?
+        if (getWhitelists().isEmpty()) {
+            return failValidation(EngineMessage.WHITELIST_NOT_FOUND);
         }
-
-        if (!validate(validateWatchdog())) {
-            return false;
-        }
-        */
         return true;
     }
 

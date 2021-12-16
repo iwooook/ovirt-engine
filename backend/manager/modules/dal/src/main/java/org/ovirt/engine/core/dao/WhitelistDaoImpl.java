@@ -63,22 +63,17 @@ public class WhitelistDaoImpl extends DefaultGenericDao<Whitelist, Guid> impleme
 
     @Override
     public List<Whitelist> getAllWithQuery(String query) {
-        log.info("WhitelistDaoImpl, getAllWithQuery() with query: ''{}''", query);
         return getJdbcTemplate().query(query, createEntityRowMapper());
     }
 
     @Override
     public void save(Whitelist whitelist) {
-        log.info("WhitelistDaoImpl save() start");
-        
         getCallsHandler().executeModification("InsertWhitelist",
                 createIdParameterMapper(whitelist.getId())
                         .addValue("description", whitelist.getDescription())
                         .addValue("user_name", whitelist.getUserName())
                         .addValue("ip_address", whitelist.getIpAddress())
                         .addValue("registration_time", whitelist.getRegistrationTime()));
-        
-        log.info("WhitelistDaoImpl save() end");
     }
 
     @Override

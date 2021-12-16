@@ -4,7 +4,6 @@ import javax.inject.Inject;
 
 import org.ovirt.engine.core.bll.context.CommandContext;
 import org.ovirt.engine.core.common.action.WhitelistParameters;
-import org.ovirt.engine.core.common.businessentities.VmDevice;
 import org.ovirt.engine.core.common.businessentities.Whitelist;
 import org.ovirt.engine.core.common.errors.EngineMessage;
 import org.ovirt.engine.core.dao.WhitelistDao;
@@ -26,12 +25,7 @@ public class RemoveWhitelistCommand extends AbstractWhitelistCommand<WhitelistPa
 
     @Override
     protected void executeCommand() {
-        log.info("RemoveWhitelistCommand, executeCommand() called");
-        /*
-        for (Whitelist whitelist : getWhitelists()) {
-            whitelistDao.remove(whitelist.getId());
-        }
-        */
+        whitelistDao.remove(getParameters().getId());
         setSucceeded(true);
     }
 
@@ -40,13 +34,9 @@ public class RemoveWhitelistCommand extends AbstractWhitelistCommand<WhitelistPa
         if (!super.validate()) {
             return false;
         }
-        // FIXME
-        /*
-        if (getWatchdogs().isEmpty()) {
-            return failValidation(EngineMessage.WATCHDOG_NOT_FOUND);
+        if (getWhitelists().isEmpty()) {
+            return failValidation(EngineMessage.WHITELIST_NOT_FOUND);
         }
-        */
         return true;
     }
-
 }
