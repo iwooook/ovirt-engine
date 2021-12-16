@@ -202,6 +202,8 @@ public class SyntaxContainer implements Iterable<SyntaxObject> {
             retval = SearchObjects.DISK_OBJ_NAME;
         } else if (SearchObjects.QUOTA_OBJ_NAME.equals(obj) || SearchObjects.QUOTA_PLU_OBJ_NAME.equals(obj)) {
             retval = SearchObjects.QUOTA_OBJ_NAME;
+        } else if (SearchObjects.WHITELIST_OBJ_NAME.equals(obj) || SearchObjects.WHITELIST_PLU_OBJ_NAME.equals(obj)) {
+            retval = SearchObjects.WHITELIST_OBJ_NAME;
         } else if (SearchObjects.VDC_POOL_OBJ_NAME.equals(obj) || SearchObjects.VDC_POOL_PLU_OBJ_NAME.equals(obj)) {
             retval = SearchObjects.VDC_POOL_OBJ_NAME;
         } else if (SearchObjects.VDC_CLUSTER_OBJ_NAME.equals(obj) || SearchObjects.VDC_CLUSTER_PLU_OBJ_NAME.equals(obj)) {

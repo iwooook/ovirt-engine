@@ -31,6 +31,7 @@ public class SearchObjectAutoCompleter extends SearchObjectsBaseAutoCompleter {
         verbs.add(SearchObjects.QUOTA_OBJ_NAME);
         verbs.add(SearchObjects.NETWORK_PLU_OBJ_NAME);
         verbs.add(SearchObjects.PROVIDER_PLU_OBJ_NAME);
+        verbs.add(SearchObjects.WHITELIST_PLU_OBJ_NAME);
         verbs.add(SearchObjects.INSTANCE_TYPE_PLU_OBJ_NAME);
         verbs.add(SearchObjects.IMAGE_TYPE_PLU_OBJ_NAME);
         verbs.add(SearchObjects.SESSION_PLU_OBJ_NAME);
@@ -49,6 +50,7 @@ public class SearchObjectAutoCompleter extends SearchObjectsBaseAutoCompleter {
         verbs.add(SearchObjects.GLUSTER_VOLUME_OBJ_NAME);
         verbs.add(SearchObjects.NETWORK_OBJ_NAME);
         verbs.add(SearchObjects.PROVIDER_OBJ_NAME);
+        verbs.add(SearchObjects.WHITELIST_OBJ_NAME);
         verbs.add(SearchObjects.INSTANCE_TYPE_OBJ_NAME);
         verbs.add(SearchObjects.IMAGE_TYPE_OBJ_NAME);
         verbs.add(SearchObjects.SESSION_OBJ_NAME);
@@ -473,6 +475,13 @@ public class SearchObjectAutoCompleter extends SearchObjectsBaseAutoCompleter {
                             "id",
                             "name ASC",
                             false));
+                put(SearchObjects.WHITELIST_OBJ_NAME, new EntitySearchInfo(null,
+                            new WhitelistConditionFieldAutoCompleter(),
+                            "whitelists",
+                            "whitelists",
+                            "whitelist_id",
+                            "registration_time ASC",
+                            false));
                     put(SearchObjects.SESSION_OBJ_NAME, new EntitySearchInfo(null,
                             new SessionConditionFieldAutoCompleter(),
                             "engine_sessions",
@@ -513,6 +522,7 @@ public class SearchObjectAutoCompleter extends SearchObjectsBaseAutoCompleter {
             put(SearchObjects.VDC_STORAGE_DOMAIN_PLU_OBJ_NAME, SearchObjects.VDC_STORAGE_DOMAIN_OBJ_NAME);
             put(SearchObjects.NETWORK_PLU_OBJ_NAME, SearchObjects.NETWORK_OBJ_NAME);
             put(SearchObjects.PROVIDER_PLU_OBJ_NAME, SearchObjects.PROVIDER_OBJ_NAME);
+            put(SearchObjects.WHITELIST_PLU_OBJ_NAME, SearchObjects.WHITELIST_OBJ_NAME);
             put(SearchObjects.SESSION_PLU_OBJ_NAME, SearchObjects.SESSION_OBJ_NAME);
             put(SearchObjects.JOB_PLU_OBJ_NAME, SearchObjects.JOB_OBJ_NAME);
         }
