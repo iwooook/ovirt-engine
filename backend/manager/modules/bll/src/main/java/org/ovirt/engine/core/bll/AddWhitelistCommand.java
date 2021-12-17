@@ -8,6 +8,7 @@ import javax.inject.Inject;
 import org.ovirt.engine.core.bll.context.CommandContext;
 import org.ovirt.engine.core.common.action.WhitelistParameters;
 import org.ovirt.engine.core.common.businessentities.Whitelist;
+import org.ovirt.engine.core.common.AuditLogType;
 import org.ovirt.engine.core.common.errors.EngineMessage;
 import org.ovirt.engine.core.compat.Guid;
 import org.ovirt.engine.core.dao.WhitelistDao;
@@ -51,5 +52,10 @@ public class AddWhitelistCommand extends AbstractWhitelistCommand<WhitelistParam
             return failValidation(EngineMessage.WHITELIST_ALREADY_EXISTS);
         }
         return true;
+    }
+
+    @Override
+    public AuditLogType getAuditLogTypeValue() {
+        return getSucceeded() ? AuditLogType.WHITELIST_ADDED : AuditLogType.WHITELIST_ADDITION_FAILED;
     }
 }
