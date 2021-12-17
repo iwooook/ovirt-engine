@@ -955,6 +955,8 @@ public interface UIConstants extends Constants {
 
     String allowToManageBookmarks();
 
+    String allowToManageWhitelists();
+
     String allowToManageEventNotifications();
 
     String allowToManageAuditLogs();

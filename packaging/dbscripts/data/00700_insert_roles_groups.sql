@@ -53,10 +53,10 @@ INSERT INTO roles_groups (role_id, action_group_id) VALUES ('00000000-0000-0000-
 INSERT INTO roles_groups (role_id, action_group_id) VALUES ('00000000-0000-0000-0000-000000000001', 704);
 INSERT INTO roles_groups (role_id, action_group_id) VALUES ('00000000-0000-0000-0000-000000000001', 705);
 INSERT INTO roles_groups (role_id, action_group_id) VALUES ('00000000-0000-0000-0000-000000000001', 800);
+INSERT INTO roles_groups (role_id, action_group_id) VALUES ('00000000-0000-0000-0000-000000000001', 1700);
 INSERT INTO roles_groups (role_id, action_group_id) VALUES ('00000000-0000-0000-0001-000000000001', 5);
 INSERT INTO roles_groups (role_id, action_group_id) VALUES ('00000000-0000-0000-0001-000000000001', 7);
 INSERT INTO roles_groups (role_id, action_group_id) VALUES ('00000000-0000-0000-0001-000000000001', 303);
-INSERT INTO roles_groups (role_id, action_group_id) VALUES ('00000000-0000-0000-0001-000000000001', 1700);
 INSERT INTO roles_groups (role_id, action_group_id) VALUES ('00000000-0000-0000-0001-000000000002', 1);
 INSERT INTO roles_groups (role_id, action_group_id) VALUES ('00000000-0000-0000-0001-000000000002', 200);
 INSERT INTO roles_groups (role_id, action_group_id) VALUES ('def00001-0000-0000-0000-def000000001', 1);

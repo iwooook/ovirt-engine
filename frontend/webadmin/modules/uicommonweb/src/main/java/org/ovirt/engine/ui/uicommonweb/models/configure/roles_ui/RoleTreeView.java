@@ -296,6 +296,7 @@ public class RoleTreeView {
                         roleNode(ActionGroup.MANIPULATE_PERMISSIONS, getConstants().allowToAddRemovePermissionsForUsersOnObjectsInTheSystemRoleTreeTooltip()),
                         roleNode(ActionGroup.ADD_USERS_AND_GROUPS_FROM_DIRECTORY, getConstants().allowToAddUsersAndGroupsFromDirectoryOnObjectsInTheSystemRoleTreeTooltip()),
                         roleNode(ActionGroup.MANIPULATE_ROLES, getConstants().allowToDefineConfigureRolesInTheSystemRoleTreeTooltip()),
+                        roleNode(ActionGroup.MANIPULATE_WHITELIST, getConstants().allowToManageWhitelists()),
                         roleNode(ActionGroup.LOGIN, getConstants().allowToLoginToTheSystemRoleTreeTooltip()),
                         roleNode(ActionGroup.TAG_MANAGEMENT, getConstants().allowToManageTags()),
                         roleNode(ActionGroup.BOOKMARK_MANAGEMENT, getConstants().allowToManageBookmarks()),
