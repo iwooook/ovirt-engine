@@ -12,6 +12,7 @@ import org.ovirt.engine.core.common.VdcObjectType;
 import org.ovirt.engine.core.common.action.WhitelistParameters;
 import org.ovirt.engine.core.common.businessentities.Whitelist;
 import org.ovirt.engine.core.common.errors.EngineMessage;
+import org.ovirt.engine.core.compat.Guid;
 import org.ovirt.engine.core.dao.WhitelistDao;
 
 /**
@@ -38,8 +39,8 @@ public abstract class AbstractWhitelistCommand<T extends WhitelistParameters> ex
     @Override
     public List<PermissionSubject> getPermissionCheckSubjects() {
         List<PermissionSubject> permissionList = new ArrayList<>();
-        permissionList.add(new PermissionSubject(getParameters().getId(),
-            VdcObjectType.Whitelist,
+        permissionList.add(new PermissionSubject(Guid.SYSTEM,
+            VdcObjectType.System,
             getActionType().getActionGroup()));
         return permissionList;
     }

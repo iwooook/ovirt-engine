@@ -39,9 +39,7 @@ public enum VdcObjectType {
     VnicProfile(27, "Vnic Profile"),
     MacPool(28, "MAC Pool"),
     DiskProfile(29, "Disk Profile"),
-    CpuProfile(30, "Cpu Profile"),
-    Whitelist(31, "Whitelist");
-
+    CpuProfile(30, "Cpu Profile");
 
     private int value;
     private String vdcObjectTranslationVal;
