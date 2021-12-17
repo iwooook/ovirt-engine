@@ -48,7 +48,7 @@ public class AddWhitelistCommand extends AbstractWhitelistCommand<WhitelistParam
         // Check if same ip address entry exists
         Whitelist whitelist = whitelistDao.getByIpAddress(getWhitelist().getIpAddress());
         if (whitelist != null) {
-            return false;
+            return failValidation(EngineMessage.WHITELIST_ALREADY_EXISTS);
         }
         return true;
     }

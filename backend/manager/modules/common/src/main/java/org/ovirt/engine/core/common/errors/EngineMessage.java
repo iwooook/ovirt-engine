@@ -1455,7 +1455,7 @@ public enum EngineMessage {
     WATCHDOG_MODEL_REQUIRED(ErrorType.BAD_PARAMETERS),
 
     // whitelist
-    WHITELIST_NOT_FOUND(ErrorType.BAD_PARAMETERS),
+    WHITELIST_ALREADY_EXISTS(ErrorType.BAD_PARAMETERS),
 
     // rng device
     ACTION_TYPE_FAILED_RNG_NOT_FOUND(ErrorType.CONFLICT),
