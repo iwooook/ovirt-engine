@@ -8,9 +8,9 @@ import org.ovirt.engine.core.compat.Guid;
 
 public class WhitelistParameters extends ActionParametersBase {
 
+    // FIXME: serialVersionUID for WhitelistParameters
     private static final long serialVersionUID = 308877238353433123L;
 
-    @Valid
     @NotNull
     Guid id;
     private Whitelist whitelist;
@@ -18,6 +18,7 @@ public class WhitelistParameters extends ActionParametersBase {
     private boolean force;
 
     public WhitelistParameters() {
+        id = Guid.Empty;
     }
 
     public WhitelistParameters(Whitelist whitelist) {

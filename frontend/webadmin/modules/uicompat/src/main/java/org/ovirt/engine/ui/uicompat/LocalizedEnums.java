@@ -179,6 +179,7 @@ public interface LocalizedEnums extends ConstantsWithLookup {
 
     String ActionGroup___BOOKMARK_MANAGEMENT();
 
+    // FIXME
     String ActionGroup___WHITELIST_MANAGEMENT();
 
     String ActionGroup___EVENT_NOTIFICATION_MANAGEMENT();
