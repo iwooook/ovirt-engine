@@ -14,7 +14,6 @@ public class WhitelistParameters extends ActionParametersBase {
     @NotNull
     Guid id;
     private Whitelist whitelist;
-
     private boolean force;
 
     public WhitelistParameters() {
@@ -26,6 +25,7 @@ public class WhitelistParameters extends ActionParametersBase {
     }
 
     public WhitelistParameters(Whitelist whitelist, boolean force) {
+        id = Guid.Empty;
         this.whitelist = whitelist;
         this.force = force;
     }
