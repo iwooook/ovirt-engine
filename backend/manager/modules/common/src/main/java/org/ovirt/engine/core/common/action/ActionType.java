@@ -624,9 +624,9 @@ public enum ActionType {
     AddVmToKubevirt(9000, ActionGroup.CREATE_VM, QuotaDependency.NONE),
     
     // Whitelist
-    AddWhitelist(9100, ActionGroup.ADD_WHITELIST, QuotaDependency.NONE),
-    UpdateWhitelist(9101, ActionGroup.EDIT_WHITELIST, QuotaDependency.NONE),
-    RemoveWhitelist(9102, ActionGroup.REMOVE_WHITELIST, QuotaDependency.NONE);
+    AddWhitelist(9100, ActionGroup.MANIPULATE_WHITELIST, QuotaDependency.NONE),
+    UpdateWhitelist(9101, ActionGroup.MANIPULATE_WHITELIST, QuotaDependency.NONE),
+    RemoveWhitelist(9102, ActionGroup.MANIPULATE_WHITELIST, QuotaDependency.NONE);
 
     private int intValue;
     private ActionGroup actionGroup;
