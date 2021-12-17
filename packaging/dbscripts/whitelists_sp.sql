@@ -81,6 +81,20 @@ BEGIN
 END;$PROCEDURE$
 LANGUAGE plpgsql;
 
+----------------------------------------------------
+-- Retrieves whitelist entity by its whitelist_id from whitelists table
+----------------------------------------------------
+CREATE OR REPLACE FUNCTION GetWhitelistByIpAddress (v_ip_address TEXT)
+RETURNS SETOF whitelists STABLE AS $PROCEDURE$
+BEGIN
+    RETURN QUERY
+
+    SELECT whitelists.*
+    FROM whitelists
+    WHERE ip_address = v_ip_address;
+END;$PROCEDURE$
+LANGUAGE plpgsql;
+
 --------------------------------------------
 -- Retrieves all whitelist entitise from whitelists table
 --------------------------------------------

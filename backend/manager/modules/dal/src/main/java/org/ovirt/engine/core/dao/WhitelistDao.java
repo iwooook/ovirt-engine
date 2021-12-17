@@ -5,6 +5,14 @@ import org.ovirt.engine.core.compat.Guid;
 
 public interface WhitelistDao extends GenericDao<Whitelist, Guid>, SearchDao<Whitelist>{
     /**
+     * Gets the whitelist by ip address.
+     *
+     * @param ipAddress
+     *            ip address
+     */
+    Whitelist getByIpAddress(String ipAddress);
+    
+    /**
      * Saves the whitelist.
      *
      * @param whitelist

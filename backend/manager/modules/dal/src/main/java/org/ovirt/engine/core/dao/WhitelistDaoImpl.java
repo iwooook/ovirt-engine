@@ -48,7 +48,6 @@ public class WhitelistDaoImpl extends DefaultGenericDao<Whitelist, Guid> impleme
             .addValue("registration_time", entity.getRegistrationTime());
     }
 
-    
     protected RowMapper<Whitelist> createEntityRowMapper() {
         return whitelistRowMapper;
     }
@@ -59,6 +58,13 @@ public class WhitelistDaoImpl extends DefaultGenericDao<Whitelist, Guid> impleme
             .addValue("whitelist_id", id);
 
         return getCallsHandler().executeRead("GetWhitelistByWhitelistId", whitelistRowMapper, parameterSource);
+    }
+
+    public Whitelist getByIpAddress(String ipAddress) {
+        MapSqlParameterSource parameterSource = getCustomMapSqlParameterSource()
+            .addValue("ip_address", ipAddress);
+
+        return getCallsHandler().executeRead("GetWhitelistByIpAddress", whitelistRowMapper, parameterSource);
     }
 
     @Override

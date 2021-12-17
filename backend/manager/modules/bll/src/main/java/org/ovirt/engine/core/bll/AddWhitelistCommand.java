@@ -45,7 +45,11 @@ public class AddWhitelistCommand extends AbstractWhitelistCommand<WhitelistParam
         if (!super.validate()) {
             return false;
         }
-        // FIXME: Check if same ip address entry exist?
+        // Check if same ip address entry exists
+        Whitelist whitelist = whitelistDao.getByIpAddress(getWhitelist().getIpAddress());
+        if (whitelist != null) {
+            return false;
+        }
         return true;
     }
 }
