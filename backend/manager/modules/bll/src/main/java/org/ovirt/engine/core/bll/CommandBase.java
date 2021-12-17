@@ -1017,9 +1017,7 @@ public abstract class CommandBase<T extends ActionParametersBase>
         for (PermissionSubject permSubject : permSubjects) {
             if (!checkSinglePermission(permSubject, getReturnValue().getValidationMessages())) {
                 logMissingPermission(permSubject);
-                // FIXME: fix after permissions implemented
-                //return false;
-                return true;
+                return false;
             }
         }
         return true;
