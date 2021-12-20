@@ -25,6 +25,7 @@ public class AddWhitelistCommand extends AbstractWhitelistCommand<WhitelistParam
 
     public AddWhitelistCommand(WhitelistParameters parameters, CommandContext commandContext) {
         super(parameters, commandContext);
+        commandContext.getExecutionContext().setMonitored(false);
     }
 
     @Override
