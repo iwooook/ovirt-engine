@@ -55,6 +55,7 @@ public class UpdateWhitelistCommand extends AbstractWhitelistCommand<WhitelistPa
 
     @Override
     public AuditLogType getAuditLogTypeValue() {
+        addCustomValue("WhitelistIpAddress", getWhitelist().getIpAddress());
         return getSucceeded() ? AuditLogType.WHITELIST_UPDATED : AuditLogType.WHITELIST_UPDATE_FAILED;
     }
 }

@@ -56,6 +56,7 @@ public class AddWhitelistCommand extends AbstractWhitelistCommand<WhitelistParam
 
     @Override
     public AuditLogType getAuditLogTypeValue() {
+        addCustomValue("WhitelistIpAddress", getWhitelist().getIpAddress());
         return getSucceeded() ? AuditLogType.WHITELIST_ADDED : AuditLogType.WHITELIST_ADDITION_FAILED;
     }
 }
