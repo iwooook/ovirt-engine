@@ -1,10 +1,11 @@
-# jungwook ignore list
-prefix
-Makefile.out
-ovirt-engine-4.4.3.11.tar.gz
-
 # ovirt-engine global ignore list
 ###########################
+
+# Jungwook ignore
+prefix
+Makefile.out
+cmds.sh
+ovirt-engine*tar.gz
 
 # mvn folders
 ###########################
